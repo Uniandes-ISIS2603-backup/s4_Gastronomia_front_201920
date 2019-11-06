@@ -7,6 +7,7 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 const routes: Routes = [
+    
 
      {
         path: 'auth',
@@ -33,10 +34,12 @@ const routes: Routes = [
             }
         ]
     },
-    {
+    
+    /*{
         path: 'home',
         component: AuthLoginComponent
     },
+    */
     {
         path: '**',
         redirectTo: 'home',
