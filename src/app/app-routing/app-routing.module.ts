@@ -47,7 +47,7 @@ const routes: Routes = [
     } , 
 
     {
-        path: 'administradores',
+        path: 'administrador',
         children: [
            
         {        

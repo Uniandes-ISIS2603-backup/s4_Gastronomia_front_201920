@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 
-const administradores = "/administradores";
+const administradores = "/administrador";
 @Injectable()
 export class AdministradorService {
 
