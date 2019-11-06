@@ -35,16 +35,10 @@ administradores: Administrador[];
     
   //}
 
-  /**
-    * Crea un cliente en la base de datos mediante un POST al servidor.
-    * @param cliente El nuevo cliente a persistir.
-    * @returns Mensaje del POST
-    */
-  //createAdministrador(administrador): Observable<Administrador> {
-    //administrador.fechaInicio = new Date(administrador.fechaInicio);
-    //administrador.fechaNacimiento = new Date(administrador.fechaNacimiento);
-    //return this.http.post<Administrador>(environment.apiURL + administradores, administrador);
-  //}
+  
+  createAdministrador(administrador): Observable<Administrador> {
+   return this.http.post<Administrador>(environment.apiURL + administradores, administrador);
+  }
 
   /**
      * Updates an author
