@@ -4,10 +4,12 @@ import { Observable } from 'rxjs';
 
 import { Cliente } from './cliente';
 import { ClienteDetail } from './cliente-detail';
+import { Tarjeta } from './tarjeta';
 
 
 const API_URL = "../../assets/";
 const clientes = 'clientes.json';
+const tarjetas = '/tarjetas';
 
 @Injectable()
 export class ClienteService {
@@ -34,6 +36,12 @@ export class ClienteService {
     */
     createCliente(cliente): Observable<Cliente> {
         return this.http.post<Cliente>(API_URL + clientes, cliente);
+    }
+
+
+    createTarjeta(clienteId, tarjeta): Observable<Tarjeta>
+    {
+       return this.http.post<Tarjeta>(API_URL + clientes + '/' + clienteId + tarjetas, tarjeta);
     }
 
 }

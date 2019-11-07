@@ -1,0 +1,9 @@
+<div id="collapseTarjeta" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let tarjeta of clienteTarjetas">
+                <td><span id="cliente-tarjeta"><b>{{tarjeta.numero}}</b></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
