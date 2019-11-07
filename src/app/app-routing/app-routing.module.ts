@@ -5,6 +5,7 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
 
 const routes: Routes = [
     
@@ -53,7 +54,15 @@ const routes: Routes = [
         {        
                 path: 'list',
                 component: AdministradorListComponent
-        } 
+        } ,
+        {
+                path: 'create',
+                component: AdministradorCreateComponent
+        },
+        {
+            path: 'login',
+            component: AuthLoginComponent
+        }
        
             
         ]
