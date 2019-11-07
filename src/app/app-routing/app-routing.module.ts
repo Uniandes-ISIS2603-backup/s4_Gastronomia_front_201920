@@ -7,8 +7,9 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
 import { FacturaListComponent} from '../factura/factura-list/factura-list.component';
+import { FacturaCreateComponent } from '../factura/factura-create/factura-create.component';
 import { TipoComidaListComponent} from '../tipo-comida/tipo-comida-list/tipo-comida-list.component';
-
+import { TipoComidaCreateComponent } from '../tipo-comida/tipo-comida-create/tipo-comida-create.component';
 
 const routes: Routes = [
     
@@ -78,7 +79,11 @@ const routes: Routes = [
         {        
                 path: 'list',
                 component: FacturaListComponent
-        } 
+        },
+        {
+            path: 'create',
+            component: FacturaCreateComponent
+        }
        
         ]
     },
@@ -89,6 +94,10 @@ const routes: Routes = [
         {        
                 path: 'list',
                 component: TipoComidaListComponent
+        },
+        {
+            path: 'create',
+            component: TipoComidaCreateComponent
         } 
        
         ]
