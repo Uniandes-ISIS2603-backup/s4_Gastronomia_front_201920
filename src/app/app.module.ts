@@ -30,8 +30,8 @@ import {AuthModule} from './auth/auth.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
-        FormsModule,
         TarjetaModule,
+        FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
