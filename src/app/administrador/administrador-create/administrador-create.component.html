@@ -1,1 +1,60 @@
-<p>hola</p>
+<div class="row">
+        <div class="col-6 offset-3">
+            <br>
+            <h2 class="text-center">Sign up</h2>
+            <br>
+            <form name="sign-up" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                            <label for="nombre"><b>Nombre</b></label>
+                            <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="administrador.nombre"
+                                #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>The client's name is missing</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido"><b>Apellido</b></label>
+                            <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="administrador.apellido"
+                                #apellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>The admin's lastname is missing</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username"><b>Username</b></label>
+                            <input type="text" name="username" class="form-control" id="username" [(ngModel)]="administrador.username"
+                                #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>The admin's username is missing</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><b>Email</b></label>
+                            <input type="email" name="email" class="form-control" id="email" [(ngModel)]="administrador.email"
+                                #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>The admin's email is missing</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contrasena"><b>Contraseña</b></label>
+                            <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="administrador.contrasena"
+                                #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>The client's password is missing</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono"><b>Teléfono</b></label>
+                            <input type="numeric" name="telefono" class="form-control" id="telefono" [(ngModel)]="administrador.phone"
+                                #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>The admin's phone number is missing</div>
+                            </div>
+                        </div>
+                <div class="justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary" (click)="createAdministrador()"> Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>

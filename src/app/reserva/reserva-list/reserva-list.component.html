@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row justify-content-center align-self-center">
+    <div class="col-md-2">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Motivo</th>
+              <th>Fecha</th>
+              <th>Número de personas</th>
+              <th>Nombre cliente</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+                <tr *ngFor = "let r of reservas" style="cursor: pointer;" routerLink="/reservas/{{r.id}}">
+                  <td >{{r.motivo}}</td>
+                  <td>{{r.fecha}}</td>
+                  <td>{{r.numPersonas}}</td>
+                  <td>{{r.nombreCliente}}</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <button type="submit" class="btn btn-primary" routerLink="/reservas/add">Crear reserva</button>
+  </div>
+</div>

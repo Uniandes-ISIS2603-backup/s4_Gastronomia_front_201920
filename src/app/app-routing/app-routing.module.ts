@@ -5,6 +5,12 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
+import { ReservaListComponent } from '../reserva/reserva-list/reserva-list.component';
+import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
+import { ReservaCreateComponent } from '../reserva/reserva-create/reserva-create.component';
 import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
 import { FacturaListComponent} from '../factura/factura-list/factura-list.component';
 import { FacturaCreateComponent } from '../factura/factura-create/factura-create.component';
@@ -14,6 +20,42 @@ import { TipoComidaCreateComponent } from '../tipo-comida/tipo-comida-create/tip
 const routes: Routes = [
     
 
+    {
+        path: 'clientes',
+        children: [
+            {
+                path: 'list',
+                component: ClienteListComponent,
+            },
+            {
+                path: 'add',
+                component: ClienteCreateComponent
+            },
+            {
+                path: ':id',
+                component: ClienteDetailComponent,
+                runGuardsAndResolvers: 'always'
+            } 
+        ]
+    },
+    {
+        path: 'reservas',
+        children: [
+            {
+                path: 'list',
+                component: ReservaListComponent,
+            },
+            {
+                path: 'add',
+                component: ReservaCreateComponent
+            },
+            {
+                path: ':id',
+                component: ReservaDetailComponent,
+                runGuardsAndResolvers: 'always'
+            } 
+        ]
+    },
      {
         path: 'auth',
         children: [
@@ -49,6 +91,10 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
+    },
+    {
+        path:'restaurantes',
+        children:[]
     } , 
 
     {

@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear reserva</h2>
+        <br>
+        <form name="reserva" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="motivo"><b>Motivo</b></label>
+                <input type="text" name="motivo" class="form-control" id="motivo" [(ngModel)]="reserva.motivo"
+                    #motivo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && motivo.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The reservation's motive is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fecha"><b>Fecha</b></label>
+                <div [ngClass]="{ 'is-invalid': f.submitted && fecha.invalid }">
+                    <input class="form-control" id="fecha" name="fecha" [(ngModel)]="reserva.fecha"
+                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fecha="ngModel" [ngClass]="{'is-invalid': f.submitted && (fecha.untouched || fecha.invalid) }"
+                        required>
+                    <div class="invalid-feedback">
+                        <div>The reservation's date is missing</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="numPersonas"><b>Número de personas</b></label>
+                <input type="text" name="numPersonas" class="form-control" id="numPersonas" [(ngModel)]="reserva.numPersonas"
+                    #numPersonas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numPersonas.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The reservation's number of people is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nombreCliente"><b>Nombre cliente</b></label>
+                <input type="text" name="nombreCliente" class="form-control" id="nombreCliente" [(ngModel)]="reserva.nombreCliente"
+                    #nombreCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreCliente.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The reservation's client name is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="numeroContacto"><b>Número de contacto</b></label>
+                <input type="numeric" name="numeroContacto" class="form-control" id="numeroContacto" [(ngModel)]="reserva.numeroContacto"
+                    #numeroContacto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroContacto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The reservation's contact number is missing</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

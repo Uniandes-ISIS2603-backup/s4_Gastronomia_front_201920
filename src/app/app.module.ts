@@ -14,18 +14,25 @@ import {AppComponent} from './app.component';
 import {AdministradorModule} from './administrador/administrador.module';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+<<<<<<< HEAD
 import {FacturaModule} from './factura/factura.module';
 import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
 
 
+=======
+import { ClienteModule } from './cliente/cliente.module';
+import { ReservaModule } from './reserva/reserva.module';
+import {RestauranteModule} from './Restaurante/restaurante.module';
+>>>>>>> 4fc07a46f9a1f6e156298826edadeeb8f9282252
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
+        RestauranteModule,
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -34,6 +41,7 @@ import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
         FacturaModule,
         TipoComidaModule,
         AuthModule,
+        RestauranteModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
@@ -42,7 +50,9 @@ import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+        ClienteModule,
+        ReservaModule
     ],
     bootstrap: [AppComponent],
     providers: [

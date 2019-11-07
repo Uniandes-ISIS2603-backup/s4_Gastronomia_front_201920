@@ -1,0 +1,43 @@
+<div id="collapseAgregarTarjeta" [ngbCollapse]="isCollapsed">
+    <div class="container-fluid">
+        <h3>Add a review</h3>
+        <form name="post" (ngSubmit)="tarjetaForm.form.valid && crearTarjeta(tarjetaForm)" #tarjetaForm="ngForm" novalidate>
+              <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="tarjetaNumero"><b>Numero</b></label>
+                        <input type="text" name="tarjetaNumero" class="form-control" id="tarjetaNumero" [(ngModel)]="tarjeta.numero"
+                               #tarjetaNumero="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && tarjetaNumero.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>El numero de la tarjeta es requerido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="tarjetaCvv"><b>Cvv</b></label>
+                        <input type="text" name="tarjetaCvv" class="form-control" id="tarjetaCvv" [(ngModel)]="tarjeta.cvv"
+                               #tarjetaCvv="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && tarjetaCvv.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>El cvv es requerido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="tarjetaFecha"><b>Fecha</b></label>
+                        <input type = "text" name="tarjetaFecha" class="form-control" id="tarjetaFecha" [(ngModel)]="tarjeta.fecha"
+                                  #tarjetaFecha="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && tarjetaFecha.invalid }"
+                                  required>
+                        <div class="invalid-feedback">
+                            <div>La fecha es requerida</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Post review</button>
+            </div>
+        </form>
+    </div>
+</div>

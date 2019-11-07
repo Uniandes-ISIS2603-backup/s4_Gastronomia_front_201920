@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Administrador } from './administrador';
 import { HttpClient } from '@angular/common/http';
-
+import { AdministradorDetail } from './administrador-detail';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 
 const administradores = "/administrador";
+
+/**
+     Angela Suarez.
+ */
+
 @Injectable()
 export class AdministradorService {
 
@@ -26,14 +31,13 @@ administradores: Administrador[];
     return this.http.get<Administrador[]>(environment.apiURL + administradores);
   }
 
-  /**
-    * Retorna el objeto observable del detalle de ficha tecnica del API
-    * @returns Los detalles del autor
-    */
-    // getAdministradorDetail(administradorId): Observable<AdministradorDetail> {
-   // return this.http.get<AdministradorDetail>(environment.apiURL + administradores + '/' + administradorId);
+  getAdministradorDetail(administradorId): Observable<AdministradorDetail> {
+    return this.http.get<AdministradorDetail>(environment.apiURL + administradores + '/' + administradorId);
     
-  //}
+  }
+
+  
+  
 
   
   createAdministrador(administrador): Observable<Administrador> {
