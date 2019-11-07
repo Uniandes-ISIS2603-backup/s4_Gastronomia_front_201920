@@ -8,8 +8,8 @@ export class Cliente {
     apellido: string;
     username: string;
     email: string;
-    //contrasena: string;
+    contrasena: string;
     cumpleanos: any;
-    //numeroContacto: string;
-    //puntos: number
+    numeroContacto: string;
+    puntos: number
 }

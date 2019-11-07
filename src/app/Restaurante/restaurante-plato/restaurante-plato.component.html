@@ -1,0 +1,12 @@
+<div id="collapsePlato" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let plato of restaurantePlatos">
+                <td><span id="restaurante-plato"><b>{{plato.nombre}}</b></span></td>
+                <td>{{plato.precio}}</td>
+                <td>{{plato.descripcion}}</td>
+                <td><img src = {{plato.rutaImagen}} class= "img-fluid" alt="..."></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
