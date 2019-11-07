@@ -20,12 +20,12 @@
             <a class="nav-link" href="#">Blog</a>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown"  >
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Admin
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" routerLink = "/administradores/list">Listar Administradores</a>
+                <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
                 <a class="dropdown-item" href="#">Listar Clientes</a>
               
               </div>
@@ -40,8 +40,8 @@
                    ¿Tienes un restaurante?
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Ingresar</a>
-              <a class="dropdown-item" href="#">Crear cuenta</a>
+              <a class="dropdown-item" href="#" routerLink = "/administrador/login" >Ingresar</a>
+              <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
             </div>
           </div>
 
@@ -55,15 +55,21 @@
 
   </nav>
 
+  
+    <section class="hero">
+      <div class="hero-inner">
+          <h1>No te quedes sin mesa</h1>
+          <h2>Reserva y encuentra tu restaurante favorito en minutos!</h2>
+        
+      </div>
+  </section>
+
   <div>
       <router-outlet></router-outlet>
       
   </div>
   
-  <div class="image">
-        <img src="../assets/fotosRestaurante/mesa.jpeg" alt="mesa" height="300" width="660" style="margin-left:10px; margin-right: 10; margin-top: 7px">
-        <img src="../assets/fotosRestaurante/platosexoticos.jpeg" alt="cell" height="300" width="660" style="margin-left:10px; margin-right: 10px; margin-top: 7px">
+  
 
-      </div>
-
-     
+  
+  
