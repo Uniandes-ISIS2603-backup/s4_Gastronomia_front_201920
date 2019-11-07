@@ -2,10 +2,13 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
-import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
+import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
+import { FacturaListComponent} from '../factura/factura-list/factura-list.component';
+import { TipoComidaListComponent} from '../tipo-comida/tipo-comida-list/tipo-comida-list.component';
+
 
 const routes: Routes = [
     
@@ -65,6 +68,29 @@ const routes: Routes = [
         }
        
             
+        ]
+    },
+
+    {
+        path: 'facturas',
+        children: [
+           
+        {        
+                path: 'list',
+                component: FacturaListComponent
+        } 
+       
+        ]
+    },
+    {
+        path: 'tipoComida',
+        children: [
+           
+        {        
+                path: 'list',
+                component: TipoComidaListComponent
+        } 
+       
         ]
     }
 

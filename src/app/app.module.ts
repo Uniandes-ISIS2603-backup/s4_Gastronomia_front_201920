@@ -14,8 +14,8 @@ import {AppComponent} from './app.component';
 import {AdministradorModule} from './administrador/administrador.module';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-
-
+import {FacturaModule} from './factura/factura.module';
+import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
 
 
 
@@ -31,6 +31,8 @@ import {AuthModule} from './auth/auth.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AdministradorModule,
+        FacturaModule,
+        TipoComidaModule,
         AuthModule,
         FormsModule,
         ToastrModule.forRoot({

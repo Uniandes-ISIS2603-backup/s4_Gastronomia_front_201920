@@ -1,3 +1,30 @@
-<p>
-  tipo-comida-list works!
-</p>
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            
+            <table class="table table-striped" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                <thead class = "thead-dark" style="background-image: linear-gradient(to top, #000000, #434343); " >
+                    <tr>
+                        
+                        <th style="color: white; font-family: 'verdana;">Nombre</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let tipoComida of tipoComidas" style="cursor: pointer;" (click)="onSelected(tipoComida)">
+                            
+                            <td style="font-family: 'Raleway', sans-serif;">{{tipoComida.nombre}}</td>
+                            
+              
+                        </tr>
+                    </tbody>
+               
+            </table>
+        
+        </div>
+    
+    </div>
+</div>

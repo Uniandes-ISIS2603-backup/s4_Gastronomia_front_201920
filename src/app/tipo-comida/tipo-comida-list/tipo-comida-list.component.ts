@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
+import { TipoComidaService } from '../tipo-comida.service';
+import { TipoComida } from '../tipo-comida';
 
 @Component({
   selector: 'app-tipo-comida-list',
@@ -7,9 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipoComidaListComponent implements OnInit {
 
-  constructor() { }
+ tipoComidas: TipoComida[];
 
-  ngOnInit() {
-  }
+ tipo_id:number;
+ 
+ selectedFactura:TipoComida;
 
+ showCreate: boolean;
+
+ showEdit:boolean;
+
+ showView: boolean;
+
+
+  
+   constructor(
+    private tipoComidaService: TipoComidaService,
+    private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService) { }
+
+    showHideCreate(): void {
+      this.showView = false;
+      this.showEdit = false;
+      this.showCreate = !this.showCreate;
+    }
+  
+    getFacturas() {
+      this.tipoComidaService.getTipoComidas()
+        .subscribe(tipoComidas => this.tipoComidas = tipoComidas);
+    }
+  
+    ngOnInit() {
+      this.showCreate = false;
+      this.showView = false;
+      this.showEdit = false;
+      
+      this.tipo_id = undefined;
+      this.getFacturas();
+    }
 }
+
+
+
+
+
+
