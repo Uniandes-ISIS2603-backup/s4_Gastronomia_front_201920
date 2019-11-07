@@ -26,8 +26,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
-                <a class="dropdown-item" href="#">Listar Clientes</a>
-              
+                <a class="dropdown-item" href="#" routerLink = "/clientes/list">Listar Clientes</a>
               </div>
             </li>
 
@@ -47,7 +46,7 @@
 
 
       <button type="button" class="btn btn-outline-dark mr-3">Inicia sesion</button>
-      <button type="button" class="btn btn-outline-dark">Hazte una cuenta</button>
+      <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Hazte una cuenta</button>
       
     </div>
 
@@ -65,8 +64,7 @@
   </section>
 
   <div>
-      <router-outlet></router-outlet>
-      
+      <router-outlet></router-outlet>  
   </div>
   
   
