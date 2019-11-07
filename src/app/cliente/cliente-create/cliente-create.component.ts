@@ -14,7 +14,7 @@ export class ClienteCreateComponent implements OnInit {
 
   constructor(
     private dp: DatePipe,
-    private authorService: ClienteService,
+    private clienteService: ClienteService,
     private toastrService: ToastrService
   ) { }
 
@@ -44,7 +44,7 @@ export class ClienteCreateComponent implements OnInit {
 
     this.cliente.cumpleanos = this.dp.transform(dateB, 'yyyy-MM-dd');
     console.log(this.cliente);
-    this.authorService.createCliente(this.cliente)
+    this.clienteService.createCliente(this.cliente)
         .subscribe((cliente) => {
             this.cliente = cliente;
             this.create.emit();
