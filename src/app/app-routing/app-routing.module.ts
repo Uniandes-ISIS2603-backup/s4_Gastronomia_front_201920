@@ -5,10 +5,26 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 
 const routes: Routes = [
 
-     {
+    {
+        path: 'clientes',
+        children: [
+            {
+                path: 'list',
+                component: ClienteListComponent
+            },
+            {
+                path: ':id',
+                component: ClienteDetailComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
+    },
+    {
         path: 'auth',
         children: [
             {
