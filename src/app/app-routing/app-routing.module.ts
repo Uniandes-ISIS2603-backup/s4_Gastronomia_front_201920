@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
@@ -12,10 +12,38 @@ import { ReservaListComponent } from '../reserva/reserva-list/reserva-list.compo
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 import { ReservaCreateComponent } from '../reserva/reserva-create/reserva-create.component';
 import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
+import { RestauranteListComponent } from '../Restaurante/Restaurante-List/restaurante-list.component';
+import { RestauranteCreateComponent } from '../Restaurante/Restaurante-create/Restaurante-create.component';
+import { RestauranteDetailComponent } from '../Restaurante/Restaurante-detail/Restaurante_detail.component';
 
 const routes: Routes = [
     
 
+     {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path: ':sign-up',
+                component: AuthSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            }
+        ]
+    },
     {
         path: 'clientes',
         children: [
@@ -52,7 +80,7 @@ const routes: Routes = [
             } 
         ]
     },
-     {
+    {
         path: 'auth',
         children: [
             {
@@ -90,7 +118,21 @@ const routes: Routes = [
     },
     {
         path:'restaurantes',
-        children:[]
+        children:[
+            {
+                path:'list',
+                component: RestauranteListComponent
+            },
+            {
+                path: 'create',
+                component: RestauranteCreateComponent
+            },
+            {
+                path: ':id',
+                component: RestauranteDetailComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
     } , 
 
     {
