@@ -5,10 +5,10 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-<<<<<<< HEAD
 import { TarjetaDetailComponent } from '../tarjeta/tarjeta-detail/tarjeta-detail.component';
 import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
 import { TarjetaCreateComponent} from '../tarjeta/tarjeta-create/tarjeta-create.component';
+import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
 const routes: Routes = [
     {
         path: 'tarjetas',
@@ -27,13 +27,6 @@ const routes: Routes = [
         }
         ]
       },
-=======
-import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
-
-const routes: Routes = [
-    
-
->>>>>>> master
      {
         path: 'auth',
         children: [
@@ -69,13 +62,11 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
-<<<<<<< HEAD
     },
     {
         path:'restaurantes',
-        children:[
-=======
-    } , 
+        children:[]
+    },         
 
     {
         path: 'administrador',
@@ -94,7 +85,6 @@ const routes: Routes = [
             component: AuthLoginComponent
         }
        
->>>>>>> b5e6107b8ec247944a66c9a5666072af6a62f940
             
         ]
     }

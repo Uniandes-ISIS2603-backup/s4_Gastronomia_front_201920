@@ -9,14 +9,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-<<<<<<< HEAD
 import {TarjetaModule} from './tarjeta/tarjeta.module';
 import {AppComponent} from './app.component';   
-=======
-
-import {AppComponent} from './app.component';
 import {AdministradorModule} from './administrador/administrador.module';
->>>>>>> master
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {RestauranteModule} from './Restaurante/restaurante.module';
@@ -38,11 +33,8 @@ import {RestauranteModule} from './Restaurante/restaurante.module';
         ModalDialogModule.forRoot(),
         AdministradorModule,
         AuthModule,
-<<<<<<< HEAD
         TarjetaModule,
-=======
         RestauranteModule,
->>>>>>> master
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
