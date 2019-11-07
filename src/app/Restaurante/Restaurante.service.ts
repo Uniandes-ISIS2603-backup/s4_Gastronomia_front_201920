@@ -3,12 +3,15 @@ import { Observable } from 'rxjs';
 import { Restaurante } from './Restaurante';
 import { HttpClient } from '@angular/common/http';
 import { RestauranteDetail } from './Restaurante-Detail';
+import {Plato} from './plato';
+
 
 
 import { environment } from '../../environments/environment';
 
 const API_URL=environment.apiURL;
-const restaurantes="/restaurantes"
+const restaurantes="/restaurantes";
+const platos = '/platos';
 
 @Injectable()
 export class RestauranteService
@@ -34,5 +37,9 @@ export class RestauranteService
     deleteRestaurante(id): Observable<RestauranteDetail>
     {
         return this.http.delete<RestauranteDetail>(API_URL + restaurantes + '/' + id);
+    }
+    createPlato(restauranteId, plato) : Observable<Plato>
+    {
+     return this.http.post<Plato>(API_URL + restaurantes + '/' + restauranteId + platos, plato);
     }
 }
