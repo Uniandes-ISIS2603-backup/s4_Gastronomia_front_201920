@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 import { Reserva } from '../reserva'
 import { ReservaService } from '../reserva.service';
 
@@ -18,7 +19,7 @@ export class ReservaListComponent implements OnInit {
   /**
    * The list of clients which belong to FoodDive
    */
-  reservas: Reserva[];
+  @Input() reservas: Reserva[];
 
   /**
    * Asks the service to update the list of clients

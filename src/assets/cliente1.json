@@ -3,5 +3,13 @@
     "nombre": "Cristina",
     "apellido": "González",
     "username": "ci.gonzalez10",
-    "email": "ci.gonzalez10@uniandes.edu.co"
+    "email": "ci.gonzalez10@uniandes.edu.co",
+    "reservas" : [
+        {
+            "motivo": "Cumpleaños",
+            "fecha": "19-03-2020",
+            "numPersonas": 9,
+            "nombreCliente": "Jesús"
+        }
+    ]
 }

@@ -19,9 +19,6 @@ import { ReservaModule } from './reserva/reserva.module';
 import {RestauranteModule} from './Restaurante/restaurante.module';
 
 
-
-
-
 @NgModule({
     declarations: [
         AppComponent,

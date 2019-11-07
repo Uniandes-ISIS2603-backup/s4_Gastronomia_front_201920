@@ -27,6 +27,7 @@ selectedAdministrador:Administrador;
  showCreate: boolean;
 
  showEdit:boolean;
+ 
  /**
    * Muestra o esconde el detalle de una a ficha tecnica
    */

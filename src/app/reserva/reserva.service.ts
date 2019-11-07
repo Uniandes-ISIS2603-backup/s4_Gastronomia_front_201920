@@ -20,4 +20,17 @@ export class ReservaService {
        return this.http.get<Reserva[]>(API_URL + reservas);
    }
 
+   getReservaDetail(id: number) : Observable<Reserva> {
+       return this.http.get<Reserva>(API_URL + 'reserva' + id + '.json')
+   }
+
+   /**
+    * Creates an reservation
+    * @param reserva The new reservation
+    * @returns The confirmation that the reservation was created
+    */
+   createReserva(reserva): Observable<Reserva> {
+    return this.http.post<Reserva>(API_URL + reservas, reserva);
+    }
+
 }
