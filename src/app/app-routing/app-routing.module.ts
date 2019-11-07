@@ -5,11 +5,13 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-<<<<<<< HEAD
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
+import { TarjetaDetailComponent } from '../tarjeta/tarjeta-detail/tarjeta-detail.component';
+import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
+import { TarjetaCreateComponent} from '../tarjeta/tarjeta-create/tarjeta-create.component';
 
 const routes: Routes = [
     
@@ -33,12 +35,6 @@ const routes: Routes = [
         ]
     },
     {
-=======
-import { TarjetaDetailComponent } from '../tarjeta/tarjeta-detail/tarjeta-detail.component';
-import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
-import { TarjetaCreateComponent} from '../tarjeta/tarjeta-create/tarjeta-create.component';
-const routes: Routes = [
-    {
         path: 'tarjetas',
         children: [{
           path: 'list',
@@ -55,7 +51,6 @@ const routes: Routes = [
         ]
       },
      {
->>>>>>> je.canizarez
         path: 'auth',
         children: [
             {
