@@ -61,8 +61,8 @@
                     <b>
                         Precio Por Persona:
                     </b>
-                    <input type="number" name="restaurantePrecioPorPersona" class="form-control" id="restaurantePrecioPorPersona" [(ngModel)]="restaurante.precioPorPersona"
-                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restaurantePrecioPorPersona.invalid}" required>               
+                    <input type="number" name="restaurante.precioPorPersona" class="form-control" id="restaurante.precioPorPersona" [(ngModel)]="restaurante.precioPorPersona"
+                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
                     <div class="invalid-feedback">
                         <div>
                             Al Restaurante le Falta un precio por persona
@@ -74,8 +74,8 @@
                     <b>
                         Tipo de restaurante:
                     </b>
-                    <input type="text" name="restauranteTipo" class="form-control" id="restauranteTipo" [(ngModel)]="restaurante.tipoRestaurante"
-                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteTipo.invalid}" required>               
+                    <input type="text" name="restaurante.tipoRestaurante" class="form-control" id="restaurante.tipoRestaurante" [(ngModel)]="restaurante.tipoRestaurante"
+                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
                     <div class="invalid-feedback">
                         <div>
                             Al Restaurante le Falta tipo
@@ -87,8 +87,8 @@
                     <b>
                         Costo de reserva:
                     </b>
-                    <input type="number" name="restauranteCostoReserva" class="form-control" id="restauranteCostoReserva" [(ngModel)]="restaurante.costoReserva"
-                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteCostoReserva.invalid}" required>               
+                    <input type="number" name="restaurante.costoReserva" class="form-control" id="restaurante.costoReserva" [(ngModel)]="restaurante.costoReserva"
+                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted}" required>               
                     <div class="invalid-feedback">
                         <div>
                             Al Restaurante le Falta un costo de reserva
@@ -100,8 +100,8 @@
                     <b>
                         Horario:
                     </b>
-                    <input type="any" name="restauranteHorario" class="form-control" id="restauranteHorario" [(ngModel)]="restaurante.horario"
-                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteHorario.invalid}" required>               
+                    <input type="any" name="restaurante.horario" class="form-control" id="restaurante.horario" [(ngModel)]="restaurante.horario"
+                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted}" required>               
                     <div class="invalid-feedback">
                         <div>
                             Al Restaurante le Falta un horario
@@ -113,8 +113,8 @@
                     <b>
                         Horario:
                     </b>
-                    <input type="checkbox" name="restauranteZonaFumadores" class="form-control" id="restauranteZonaFumadores" [(ngModel)]="restaurante.zonaFumadores"
-                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteHorario.invalid}" required>               
+                    <input type="checkbox" name="restaurante.zonaDeFumadores" class="form-control" id="restaurante.zonaDeFumadores" [(ngModel)]="restaurante.zonaDeFumadores"
+                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
                     <div class="invalid-feedback">
                         <div>
                             Al Restaurante le Falta un horario
