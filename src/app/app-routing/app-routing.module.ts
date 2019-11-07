@@ -12,6 +12,9 @@ import { ReservaListComponent } from '../reserva/reserva-list/reserva-list.compo
 import { ReservaDetailComponent } from '../reserva/reserva-detail/reserva-detail.component';
 import { ReservaCreateComponent } from '../reserva/reserva-create/reserva-create.component';
 import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
+import { TarjetaDetailComponent } from '../tarjeta/tarjeta-detail/tarjeta-detail.component';
+import { TarjetaListComponent } from '../tarjeta/tarjeta-list/tarjeta-list.component';
+import { TarjetaCreateComponent} from '../tarjeta/tarjeta-create/tarjeta-create.component';
 
 const routes: Routes = [
     
@@ -53,6 +56,22 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'tarjetas',
+        children: [{
+          path: 'list',
+          component: TarjetaListComponent
+        },
+        {
+        path: 'add',
+        component: TarjetaCreateComponent
+        },
+        {
+          path: ':id',
+          component: TarjetaDetailComponent,
+        }
+        ]
+      },
+     {
         path: 'auth',
         children: [
             {
