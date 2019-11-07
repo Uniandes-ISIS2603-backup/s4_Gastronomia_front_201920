@@ -45,12 +45,10 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
-<<<<<<< HEAD
     },
     {
         path:'restaurantes',
-        children:[
-=======
+        children:[]
     } , 
 
     {
@@ -70,7 +68,6 @@ const routes: Routes = [
             component: AuthLoginComponent
         }
        
->>>>>>> b5e6107b8ec247944a66c9a5666072af6a62f940
             
         ]
     }

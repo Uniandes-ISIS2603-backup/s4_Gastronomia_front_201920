@@ -13,6 +13,9 @@ import { AdministradorCreateComponent } from './administrador-create/administrad
 import { AdministradorEditComponent } from './administrador-edit/administrador-edit.component';
 
 import { AdministradorService } from './administrador.service';
+/**
+     Angela Suarez.
+ */
 @NgModule({
   imports: [
     BrowserModule,
