@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
@@ -24,21 +24,23 @@ export class RestauranteCreateComponent implements OnInit
     /**
      * Cancela la creación de un restaurante
      */
-    cancelCreation():void
-    {
-        this.toastrService.warning('El restaurante no se pudo crear','Restaurante Create');
-    }
+    @Output() cancel = new EventEmitter();
+   @Output() create = new EventEmitter();
 
-    createRestaurante():Restaurante
-    {
-        this.restauranteService.createRestaurante(this.restaurante)
-        .subscribe(restaurante => {
-            this.restaurante.id = restaurante.id;
-            this.router.navigate(['/restaurantes/' + restaurante.id]);
-        }, err => {
-            this.toastrService.error(err, 'Error');
-        });
-        return this.restaurante;
+   createRestaurante(): Restaurante {
+    
+  this.restauranteService.createRestaurante(this.restaurante)
+    .subscribe((restaurante) => {
+      this.restaurante = restaurante;
+      this.create.emit();
+      this.toastrService.success("El restaurante fue creado!", "Creación del restaurante");
+
+    });
+  return this.restaurante;
+}
+
+    cancelCreation(): void {
+      this.cancel.emit();
     }
     /**
      * inicializa el componente

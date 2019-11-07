@@ -33,8 +33,7 @@ export class RestauranteDetailComponent{
         private viewRef: ViewContainerRef,
         private toastrService: ToastrService
     ) {
-        //This is added so we can refresh the view when one of the books in
-        //the "Other books" list is clicked
+        
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationEnd) {
                 this.ngOnInit();

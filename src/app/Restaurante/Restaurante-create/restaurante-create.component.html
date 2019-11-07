@@ -3,8 +3,7 @@
             <br>
             <h2 class="text-center">Crear un Restaurante</h2>
             <br>
-            <form name="sign-up" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
-                   
+            <form name="sign-up" (ngSubmit)="f.form.valid " #f="ngForm" novalidate>
 
 
                 
@@ -33,23 +32,11 @@
                                 Al Restaurante le Falta el contrasena
                             </div>
                         </div>
-                </div>
-                <div class="form-group">
-                    <label for="restauranteContrasenaRepeat"></label>
-                        <b>
-                            contrasena:
-                        </b>
-                        <input type="text" name="restauranteContrasenaRepeat" class="form-control" id="restauranteContrasenaRepeat"  [ngClass]="{'is-valid': f.submitted && restauranteContrasena===restauranteContrasena}" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                repita la contraseña
-                            </div>
-                        </div>
-                </div>
+                </div>                
                 <div class="form-group">
                     <label for="restauranteDireccion"></label>
                         <b>
-                            contrasena:
+                            direccion:
                         </b>
                         <input type="text" name="restauranteDireccion" class="form-control" id="restauranteDireccion" [(ngModel)]="restaurante.direccion"
                             #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteDireccion.invalid}" required>               
@@ -112,9 +99,22 @@
                         </div>
                 </div>
                 <div class="form-group">
+                        <label for="restauranteImagen"></label>
+                            <b>
+                                imagen:
+                            </b>
+                            <input type="any" name="restaurante.imageb" class="form-control" id="restaurante.imagen" [(ngModel)]="restaurante.imagen"
+                                #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted}" required>               
+                            <div class="invalid-feedback">
+                                <div>
+                                    Al Restaurante le Falta un horario
+                                </div>
+                            </div>
+                    </div>
+                <div class="form-group">
                     <label for="restauranteZonaFumadores"></label>
                         <b>
-                            Horario:
+                            Zona Fumadores:
                         </b>
                         <input type="checkbox" name="restaurante.zonaDeFumadores" class="form-control" id="restaurante.zonaDeFumadores" [(ngModel)]="restaurante.zonaDeFumadores"
                             #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
@@ -124,10 +124,64 @@
                             </div>
                         </div>
                 </div>
-            
-                <div class="justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary" (click)="createAdministrador()"> Sign Up</button>
+                <div class="form-group">
+                    <label for="restauranteDescuentoCumpleanos"></label>
+                        <b>
+                            Descuento cumpleaños:
+                        </b>
+                        <input type="checkbox" name="restaurante.descuentaoCumpleanos" class="form-control" id="restaurante.descuentaoCumpleanos" [(ngModel)]="restaurante.descuentaoCumpleanos"
+                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
+                        <div class="invalid-feedback">
+                            <div>
+                                Al Restaurante le Falta un horario
+                            </div>
+                        </div>
                 </div>
+                <div class="form-group">
+                        <label for="restaurantePetFriendly"></label>
+                            <b>
+                                Pet Friendly:
+                            </b>
+                            <input type="checkbox" name="restaurante.petFriendly" class="form-control" id="restaurante.petFriendly" [(ngModel)]="restaurante.petFriendly"
+                                #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
+                            <div class="invalid-feedback">
+                                <div>
+                                    Al Restaurante le Falta un horario
+                                </div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="restauranteMusicaEnVivo"></label>
+                                <b>
+                                    Música en Vivo:
+                                </b>
+                                <input type="checkbox" name="restaurante.musicaEnVivo" class="form-control" id="restaurante.musicaEnVivo" [(ngModel)]="restaurante.musicaEnVivo"
+                                    #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
+                                <div class="invalid-feedback">
+                                    <div>
+                                        Al Restaurante le Falta un horario
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="restauranteServicioALaMesa"></label>
+                                    <b>
+                                        Servicio A La Mesa:
+                                    </b>
+                                    <input type="checkbox" name="restaurante.servicioALaMesa" class="form-control" id="restaurante.servicioALaMesa" [(ngModel)]="restaurante.servicioALaMesa"
+                                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
+                                    <div class="invalid-feedback">
+                                        <div>
+                                            Al Restaurante le Falta un horario
+                                        </div>
+                                    </div>
+                            </div>
+                <div class="justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary" (click)=" createRestaurante()"> Crear Restaurante</button>
+                </div>
+                <div class="justify-content-center align-self-center">
+                        <button type="submit" class="btn btn-danger" (click)="cancelCreation()"> Eliminar Restaurante</button>
+                    </div>
             </form>
         </div>
     </div>
