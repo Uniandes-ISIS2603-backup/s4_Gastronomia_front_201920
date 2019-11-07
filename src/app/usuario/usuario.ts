@@ -1,6 +1,10 @@
+/**
+     Angela Suarez.
+ */
+
 export class Usuario {
 
-  
+    id : number;
     /**
      * Nombre del usuario.
      */

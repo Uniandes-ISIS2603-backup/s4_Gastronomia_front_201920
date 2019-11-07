@@ -8,6 +8,10 @@ import { Administrador } from '../administrador';
   templateUrl: './administrador-create.component.html',
   styleUrls: ['./administrador-create.component.css']
 })
+
+/**
+     Angela Suarez.
+ */
 export class AdministradorCreateComponent implements OnInit {
 
   
