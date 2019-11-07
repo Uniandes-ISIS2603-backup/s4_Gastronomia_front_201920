@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear una tarjeta</h2>
+        <br>
+        <form name="tarjeta" (ngSubmit)="f.form.valid && createTarjeta()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="Numero"><b>Numero</b></label>
+                <input type="text" name="Numero" class="form-control" id="numero" [(ngModel)]="tarjeta.numero"
+                    #numero="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numero.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El numero de la tarjeta es requerida</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tarjetaFecha"><b>Fecha</b></label>
+                <div [ngClass]="{ 'is-invalid': f.submitted && tarjetaF.invalid }">
+                    <input class="form-control" id="tarjetaF" name="tarjetaF" [(ngModel)]="tarjeta.fecha"
+                    ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #tarjetaF="ngModel" [ngClass]="{'is-invalid': f.submitted && (tarjetaF.untouched || tarjetaF.invalid) }"
+                        required>
+                    <div class="invalid-feedback">
+                        <div>La fecha es requerida</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tarjetaCvv"><b>Cvv</b></label>
+                <textarea name="cvv" maxlength=3 class="form-control" id="cvv" [(ngModel)]="tarjeta.cvv"
+                    #cvv="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cvv.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>El cvv es requerido</div>
+                </div>
+            </div>
+           
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
