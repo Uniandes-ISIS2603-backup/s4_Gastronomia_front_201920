@@ -20,7 +20,7 @@ export class AdministradorCreateComponent implements OnInit {
    @Output() create = new EventEmitter();
 
    createAdministrador(): Administrador {
-    debugger;
+    
   this.administradorService.createAdministrador(this.administrador)
     .subscribe((administrador) => {
       this.administrador = administrador;
