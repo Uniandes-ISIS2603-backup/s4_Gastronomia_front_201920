@@ -23,15 +23,15 @@ export class AppComponent implements OnInit {
         this.title = "s4_gastronomia-Front";
         this.authService.start();
     }
-
+   // constructor() {}
        /**
      * @ignore
      */
     constructor(private authService: AuthService) { }
 
-    logout(): void {
-        this.authService.logout()
-    }
+    //logout(): void {
+      //  this.authService.logout()
+    //}
 
 }
 
