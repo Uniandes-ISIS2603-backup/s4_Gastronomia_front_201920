@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" >
     <h1>Create Restaurante</h1>
     <div class="row">
         <div class="col-sm-4"><!--La primera columna que tiene el info sin beneficios-->
@@ -13,43 +13,49 @@
                         <tr>
                             <td>Nombre:</td>
                             <td>
-                                <input type="text" value="Example" id="nameValue" minlength="1">
+                                <input (keyup)="onTime()" type="text" value="Example" id="nameValue" minlength="1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tipo:</td>
+                            <td>
+                                <input (keyup)="onTime()" type="text" value="Example" id="tipoValue" minlength="1">
                             </td>
                         </tr>
                         <tr>
                             <td>Contraseña:</td>
                             <td>
-                                <input type="password" value="Example" id="passValue" minlength="8">
+                                <input (keyup)="onTime()" type="password" value="Example" id="passValue" minlength="8">
                             </td>
                         </tr>
                         <tr>
                             <td>Repita La Contraseña:</td>
                             <td>
-                                <input type="password" value="" id="repeatPass" minlength="8">
+                                <input (keyup)="verifyPassword()" type="password" value="" id="repeatPass" minlength="8">
                             </td>
                         </tr>
                         <tr>
                             <td>Dirección:</td>
                             <td>
-                                <input type="text" id="dirValue" minlength="1">
+                                <input (keyup)="onTime()" type="text" id="dirValue" minlength="1">
                             </td>
                         </tr>
                         <tr>
                             <td>Imagen:</td>
                             <td>
-                                <input type="text" value="example">
+                                <input (keyup)="onTime()" type="text" value="example" id="imgValue">
                             </td>
                         </tr>
                         <tr>
                             <td>Costo Reserva: </td>
                             <td>
-                                <input type="number" value="0.0" min="0.0">
+                                <input (keyup)="onTime()" type="number" value="0.0" min="0.0" id="costoRValue">
                             </td>
                         </tr>
                         <tr>
                             <td>Precio Promedio:</td>
                             <td>
-                                    <input type="number" value="0.0" min="0.0">
+                                    <input (keyup)="onTime()" type="number" value="0.0" min="0.0" id="precioPValue">
                             </td>
                         </tr>
                     </tbody>
@@ -71,10 +77,10 @@
                             Descuento de Cumpleaños:
                         </td>
                         <td>
-                            <button type="button" id="btnDescY">Yes</button>
+                            <button type="button" (click)="trueDescuento()" id="btnDescY">Yes</button>
                         </td>
                         <td>
-                            <button type="button" id="btnDescN">No</button>
+                            <button type="button" (click)="falseDescuento()" id="btnDescN">No</button>
                         </td>
                     </tr>
                     <tr>
@@ -82,10 +88,10 @@
                             Zona De Fumadores:
                         </td>
                         <td>
-                            <button type="button" id="btnFumY">Yes</button>
+                            <button type="button" (click)="trueFumadores()" id="btnFumY">Yes</button>
                         </td>
                         <td>
-                            <button type="button" id="btnFumN">No</button>
+                            <button type="button" (click)="falseFumadores()" id="btnFumN">No</button>
                         </td>
                     </tr>
                     <tr>
@@ -93,10 +99,10 @@
                             Pet Friendly:
                         </td>
                         <td>
-                            <button type="button" id="btnPetY">Yes</button>
+                            <button type="button" (click)="truePet()" id="btnPetY">Yes</button>
                         </td>
                         <td>
-                            <button type="button" id="btnPetN">No</button>
+                            <button type="button" (click)="falsePet()" id="btnPetN">No</button>
                         </td>
                     </tr>
                     <tr>
@@ -104,10 +110,10 @@
                             Música En Vivo:
                         </td>
                         <td>
-                            <button type="button" id="btnMusicY">Yes</button>
+                            <button type="button" (click)="trueMusica()" id="btnMusicY">Yes</button>
                         </td>
                         <td>
-                            <button type="button" id="btnMusicN">No</button>
+                            <button type="button" (click)="falseMusica()" id="btnMusicN">No</button>
                         </td>
                     </tr>
                     <tr>
@@ -115,10 +121,10 @@
                             Servicio A La Mesa:
                         </td>
                         <td>
-                            <button type="button" id="btnServY">Yes</button>
+                            <button type="button" (click)="trueService()" id="btnServY">Yes</button>
                         </td>
                         <td>
-                            <button type="button" id="btnServN">No</button>
+                            <button type="button" (click)="falseService()" id="btnServN">No</button>
                         </td>
                     </tr>
                 </tbody>
@@ -128,20 +134,21 @@
             <div class="card" >
                     <img src={{restaurante.imagen}} class="card-img-top" alt={{restaurante.nombre}} >
                     <div class="card-body">
-                        <h5 class="card-title" id="cardName">{{restaurante.nombre}}</h5>
+                        <h5 class="card-title" id="cardName">Nombre</h5>
                         <p class="card-text">
                             Descripción de Restaurante:
                         </p>
                             <ul>
-                                <li id="cardDescuento">Descuento Cumpleaños: {{restaurante.descuentaoCumpleanos}}</li>
-                                <li id="cardDireccion">Dirección: {{restaurante.direccion}}</li>
-                                <li id="cardCostoReserva">Costo Reserva: {{restaurante.costoReserva}}</li>
-                                <li id="cardPrecioPersona">Precio Por Persona: {{restaurante.precioPorPersona}}</li>
-                                <li id="cardDescuento">Descuento Cumpleaños: {{restaurante.descuentaoCumpleanos}}</li>
-                                <li id="cardFumadores">Zona de Fumadores: {{restaurante.zonaDeFumadores}}</li>
-                                <li id="cardPet">Pet Friendly: {{restaurante.petFriendly}}</li>
-                                <li id="cardMusica">Música en Vivo: {{restaurante.musicaEnVivo}}</li>
-                                <li id="cardServicio">Servicio A La Mesa: {{restaurante.servicioALaMesa}}</li>
+                                <li id="cardDireccion">Dirección: </li>
+                                <li id="cardIm">Url Imagen: </li>
+                                <li id="cardCostoReserva">Costo Reserva: </li>
+                                <li id="cardTipo">Tipo: </li>
+                                <li id="cardPrecioPersona">Precio Por Persona: </li>
+                                <li id="cardDescuento">Descuento Cumpleaños: </li>
+                                <li id="cardFumadores">Zona de Fumadores: </li>
+                                <li id="cardPet">Pet Friendly: </li>
+                                <li id="cardMusica">Música en Vivo: </li>
+                                <li id="cardServicio">Servicio A La Mesa: </li>
                             </ul>                
                         <table>
                             <thead>
@@ -151,8 +158,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <a href="#" class="btn btn-primary" id="Create">Create Restaurante</a>
-                                    <a href="#" class="btn btn-primary" id="Cancel">Cancelar Restaurante</a>
+                                    <button type="submit" class="btn btn-primary" (click)=" createRestaurante()" routerLink="/restaurantes/{{restaurante.id}}"> Crear Restaurante</button>
+                                    <button type="submit" class="btn btn-danger" (click)="cancelCreation()" routerLink="/restaurantes/list"> Eliminar Restaurante</button>
                             </tbody>
                         </table>                
                     </div>

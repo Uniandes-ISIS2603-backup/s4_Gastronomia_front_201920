@@ -56,7 +56,7 @@ export class RestauranteDetailComponent{
         {
             s.push("Servicio a la Mesa");
         }
-        if(this.restauranteDetail.descuentaoCumpleanos)
+        if(this.restauranteDetail.descuentoCumpleanos)
         {
             s.push("Descuento De Cumpleaños");
         }
