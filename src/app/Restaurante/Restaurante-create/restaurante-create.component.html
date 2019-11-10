@@ -1,187 +1,162 @@
-<div class="row">
-        <div class="col-6 offset-3">
-            <br>
-            <h2 class="text-center">Crear un Restaurante</h2>
-            <br>
-            <form name="sign-up" (ngSubmit)="f.form.valid " #f="ngForm" novalidate>
-
-
-                
-            <div class="form-group">
-                    <label for="restauranteNombre"></label>
-                        <b>
-                            Nombre:
-                        </b>
-                        <input type="text" name="restauranteNombre" class="form-control" id="restauranteNombre" [(ngModel)]="restaurante.nombre"
-                            #restauranteNombre="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteNombre.invalid}" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta el Nombre
-                            </div>
-                        </div>
+<div class="container-fluid">
+    <h1>Create Restaurante</h1>
+    <div class="row">
+        <div class="col-sm-4"><!--La primera columna que tiene el info sin beneficios-->
+            <div class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td>
+                                <input type="text" value="Example" id="nameValue" minlength="1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Contraseña:</td>
+                            <td>
+                                <input type="password" value="Example" id="passValue" minlength="8">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Repita La Contraseña:</td>
+                            <td>
+                                <input type="password" value="" id="repeatPass" minlength="8">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dirección:</td>
+                            <td>
+                                <input type="text" id="dirValue" minlength="1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Imagen:</td>
+                            <td>
+                                <input type="text" value="example">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Costo Reserva: </td>
+                            <td>
+                                <input type="number" value="0.0" min="0.0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Precio Promedio:</td>
+                            <td>
+                                    <input type="number" value="0.0" min="0.0">
+                            </td>
+                        </tr>
+                    </tbody>
                 </div>
-                <div class="form-group">
-                    <label for="restauranteContrasena"></label>
-                        <b>
-                            contrasena:
-                        </b>
-                        <input type="text" name="restauranteContrasena" class="form-control" id="restauranteContrasena" [(ngModel)]="restaurante.contrasena"
-                            #restauranteContrasena="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteContrasena.invalid}" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta el contrasena
-                            </div>
-                        </div>
-                </div>                
-                <div class="form-group">
-                    <label for="restauranteDireccion"></label>
-                        <b>
-                            direccion:
-                        </b>
-                        <input type="text" name="restauranteDireccion" class="form-control" id="restauranteDireccion" [(ngModel)]="restaurante.direccion"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted && restauranteDireccion.invalid}" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta direccion
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <label for="restaurantePrecioPorPersona"></label>
-                        <b>
-                            Precio Por Persona:
-                        </b>
-                        <input type="number" name="restaurante.precioPorPersona" class="form-control" id="restaurante.precioPorPersona" [(ngModel)]="restaurante.precioPorPersona"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta un precio por persona
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <label for="restauranteTipo"></label>
-                        <b>
-                            Tipo de restaurante:
-                        </b>
-                        <input type="text" name="restaurante.tipoRestaurante" class="form-control" id="restaurante.tipoRestaurante" [(ngModel)]="restaurante.tipoRestaurante"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta tipo
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <label for="restauranteCostoReserva"></label>
-                        <b>
-                            Costo de reserva:
-                        </b>
-                        <input type="number" name="restaurante.costoReserva" class="form-control" id="restaurante.costoReserva" [(ngModel)]="restaurante.costoReserva"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted}" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta un costo de reserva
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <label for="restauranteHorario"></label>
-                        <b>
-                            Horario:
-                        </b>
-                        <input type="any" name="restaurante.horario" class="form-control" id="restaurante.horario" [(ngModel)]="restaurante.horario"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted}" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta un horario
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                        <label for="restauranteImagen"></label>
-                            <b>
-                                imagen:
-                            </b>
-                            <input type="any" name="restaurante.imageb" class="form-control" id="restaurante.imagen" [(ngModel)]="restaurante.imagen"
-                                #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted}" required>               
-                            <div class="invalid-feedback">
-                                <div>
-                                    Al Restaurante le Falta un horario
-                                </div>
-                            </div>
-                    </div>
-                <div class="form-group">
-                    <label for="restauranteZonaFumadores"></label>
-                        <b>
-                            Zona Fumadores:
-                        </b>
-                        <input type="checkbox" name="restaurante.zonaDeFumadores" class="form-control" id="restaurante.zonaDeFumadores" [(ngModel)]="restaurante.zonaDeFumadores"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta un horario
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <label for="restauranteDescuentoCumpleanos"></label>
-                        <b>
-                            Descuento cumpleaños:
-                        </b>
-                        <input type="checkbox" name="restaurante.descuentaoCumpleanos" class="form-control" id="restaurante.descuentaoCumpleanos" [(ngModel)]="restaurante.descuentaoCumpleanos"
-                            #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                        <div class="invalid-feedback">
-                            <div>
-                                Al Restaurante le Falta un horario
-                            </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                        <label for="restaurantePetFriendly"></label>
-                            <b>
-                                Pet Friendly:
-                            </b>
-                            <input type="checkbox" name="restaurante.petFriendly" class="form-control" id="restaurante.petFriendly" [(ngModel)]="restaurante.petFriendly"
-                                #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                            <div class="invalid-feedback">
-                                <div>
-                                    Al Restaurante le Falta un horario
-                                </div>
-                            </div>
-                    </div>
-                    <div class="form-group">
-                            <label for="restauranteMusicaEnVivo"></label>
-                                <b>
-                                    Música en Vivo:
-                                </b>
-                                <input type="checkbox" name="restaurante.musicaEnVivo" class="form-control" id="restaurante.musicaEnVivo" [(ngModel)]="restaurante.musicaEnVivo"
-                                    #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                                <div class="invalid-feedback">
-                                    <div>
-                                        Al Restaurante le Falta un horario
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                                <label for="restauranteServicioALaMesa"></label>
-                                    <b>
-                                        Servicio A La Mesa:
-                                    </b>
-                                    <input type="checkbox" name="restaurante.servicioALaMesa" class="form-control" id="restaurante.servicioALaMesa" [(ngModel)]="restaurante.servicioALaMesa"
-                                        #restauranteDireccion="ngModel" [ngClass]="{'is-valid': f.submitted }" required>               
-                                    <div class="invalid-feedback">
-                                        <div>
-                                            Al Restaurante le Falta un horario
-                                        </div>
-                                    </div>
-                            </div>
-                <div class="justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary" (click)=" createRestaurante()"> Crear Restaurante</button>
-                </div>
-                <div class="justify-content-center align-self-center">
-                        <button type="submit" class="btn btn-danger" (click)="cancelCreation()"> Eliminar Restaurante</button>
-                    </div>
-            </form>
+            </div>        
+        <div class="col-sm-4"><!--la columna con los beneficios-->
+            <h2>Beneficios Del Restaurante</h2>
+            <div class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Descuento de Cumpleaños:
+                        </td>
+                        <td>
+                            <button type="button" id="btnDescY">Yes</button>
+                        </td>
+                        <td>
+                            <button type="button" id="btnDescN">No</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Zona De Fumadores:
+                        </td>
+                        <td>
+                            <button type="button" id="btnFumY">Yes</button>
+                        </td>
+                        <td>
+                            <button type="button" id="btnFumN">No</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Pet Friendly:
+                        </td>
+                        <td>
+                            <button type="button" id="btnPetY">Yes</button>
+                        </td>
+                        <td>
+                            <button type="button" id="btnPetN">No</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Música En Vivo:
+                        </td>
+                        <td>
+                            <button type="button" id="btnMusicY">Yes</button>
+                        </td>
+                        <td>
+                            <button type="button" id="btnMusicN">No</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Servicio A La Mesa:
+                        </td>
+                        <td>
+                            <button type="button" id="btnServY">Yes</button>
+                        </td>
+                        <td>
+                            <button type="button" id="btnServN">No</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </div>
         </div>
-    </div>
+        <div class="col-sm-4"><!--La columna que tiene la card-->
+            <div class="card" >
+                    <img src={{restaurante.imagen}} class="card-img-top" alt={{restaurante.nombre}} >
+                    <div class="card-body">
+                        <h5 class="card-title" id="cardName">{{restaurante.nombre}}</h5>
+                        <p class="card-text">
+                            Descripción de Restaurante:
+                        </p>
+                            <ul>
+                                <li id="cardDescuento">Descuento Cumpleaños: {{restaurante.descuentaoCumpleanos}}</li>
+                                <li id="cardDireccion">Dirección: {{restaurante.direccion}}</li>
+                                <li id="cardCostoReserva">Costo Reserva: {{restaurante.costoReserva}}</li>
+                                <li id="cardPrecioPersona">Precio Por Persona: {{restaurante.precioPorPersona}}</li>
+                                <li id="cardDescuento">Descuento Cumpleaños: {{restaurante.descuentaoCumpleanos}}</li>
+                                <li id="cardFumadores">Zona de Fumadores: {{restaurante.zonaDeFumadores}}</li>
+                                <li id="cardPet">Pet Friendly: {{restaurante.petFriendly}}</li>
+                                <li id="cardMusica">Música en Vivo: {{restaurante.musicaEnVivo}}</li>
+                                <li id="cardServicio">Servicio A La Mesa: {{restaurante.servicioALaMesa}}</li>
+                            </ul>                
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <a href="#" class="btn btn-primary" id="Create">Create Restaurante</a>
+                                    <a href="#" class="btn btn-primary" id="Cancel">Cancelar Restaurante</a>
+                            </tbody>
+                        </table>                
+                    </div>
+                </div>    
+            </div>         
+        </div>
+</div>

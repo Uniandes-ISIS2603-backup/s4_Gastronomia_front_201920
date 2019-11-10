@@ -22,9 +22,9 @@ export class RestauranteService
     {
         return this.http.get<Restaurante[]>(API_URL+restaurantes);
     }
-    createRestaurante(restaurante):Observable<RestauranteDetail>
+    createRestaurante(restaurante):Observable<Restaurante>
     {
-        return this.http.post<RestauranteDetail>(API_URL+restaurantes,restaurante);
+        return this.http.post<Restaurante>(API_URL+restaurantes,restaurante);
     }
     getRestauranteDetail(id):Observable<RestauranteDetail>
     {

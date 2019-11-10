@@ -39,7 +39,7 @@ export class Restaurante
     /**
      * el horario
      */
-    horario:any;
+    horario:Date;
 
     imagen: String;
 
