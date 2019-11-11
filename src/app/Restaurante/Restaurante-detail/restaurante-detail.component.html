@@ -11,7 +11,7 @@
           </div>
           <div class="col-4 text-center">
             <a class="blog-header-logo text-dark" >Foodive</a>
-          </div>
+          </div>  
           <div class="col-4 d-flex justify-content-end align-items-center">
             <a class="text-muted" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
@@ -37,17 +37,15 @@
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <h3 class="mb-0">Nuestros Platos</h3>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody id="Menu">
-              </tbody>
-            </table>            
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoListComponent.isCollapsed,'btn-outline-primary':!platoListComponent.isCollapsed}" (click)="togglePlatos()">
+              Platos
+  </button>
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoAgregarComponent.isCollapsed,'btn-outline-primary':!platoAgregarComponent.isCollapsed}" (click)="toggleCreatePlato()">
+              Crear un plato
+  </button>
+          <app-restaurante-plato [restaurantePlatos] = "restauranteDetail.platos"></app-restaurante-plato> 
+          <app-restaurante-agregar-plato [restaurante] = "restauranteDetail" (updatePlatos) = "updatePlatos()"></app-restaurante-agregar-plato>  
+
           </div>          
         </div>
       </div>

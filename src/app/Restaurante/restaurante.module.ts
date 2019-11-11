@@ -18,7 +18,6 @@ import{AdministradorModule} from '../administrador/administrador.module';
 import {RestauranteService} from './Restaurante.service';
 import { Restaurante } from './Restaurante';
 import { RestaurantePlatoComponent } from './restaurante-plato/restaurante-plato.component';
-
 @NgModule({
     imports:[BrowserModule,
         AppRoutingModule,
