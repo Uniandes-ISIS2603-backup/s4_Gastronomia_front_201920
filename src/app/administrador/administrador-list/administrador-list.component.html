@@ -38,22 +38,19 @@
 
                 <div class="col-md-6">
 
-                        <div *ngIf="showView && !showEdit">
-                            <app-administrador-detail [administradorDetail]="selectedAdministrador"></app-administrador-detail>
-                        </div>
-            
-                        <div *ngIf="showCreate">
-                                <app-administrador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-administrador-create>
-                            </div>
+                    <div *ngIf="showView && !showEdit">
+                        <app-administrador-detail [administradorDetail]="selectedAdministrador"></app-administrador-detail>
+                    </div>
+        
+                    <div *ngIf="showCreate">
+                            <app-administrador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-administrador-create>
+                     </div>
+                       
                             
                         
-                    </div>
+             </div>
         
         </div>
       
-
-           
-            
-        
     </div>
-</div>
+

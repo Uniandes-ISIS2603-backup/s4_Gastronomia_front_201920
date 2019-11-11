@@ -14,16 +14,11 @@ import {AppComponent} from './app.component';
 import {AdministradorModule} from './administrador/administrador.module';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-<<<<<<< HEAD
 import {FacturaModule} from './factura/factura.module';
 import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
-
-
-=======
 import { ClienteModule } from './cliente/cliente.module';
 import { ReservaModule } from './reserva/reserva.module';
 import {RestauranteModule} from './Restaurante/restaurante.module';
->>>>>>> 4fc07a46f9a1f6e156298826edadeeb8f9282252
 
 
 @NgModule({

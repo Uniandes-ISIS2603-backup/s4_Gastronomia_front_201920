@@ -11,19 +11,21 @@ import { Restaurante } from '../Restaurante';
   templateUrl: './restaurante-agregar-plato.component.html',
   styleUrls: ['./restaurante-agregar-plato.component.css']
 })
-export class RestauranteAgregarPlatoComponent implements OnInit {
+export class RestauranteAgregarPlatoComponent implements OnInit, OnChanges {
+ 
 
   constructor(
       private restauranteService: RestauranteService,
       private toastrService: ToastrService
   ) { }
-  @Input() restaurante: Restaurante;
+  @Input() restaurante: Restaurante;  
 
   public isCollapsed = true;
 
   plato: Plato;
   
   @Output() updatePlatos = new EventEmitter();
+
   crearPlato(platoForm: NgForm):Plato
   {
      this.plato.restaurante = this.restaurante;
@@ -40,6 +42,11 @@ export class RestauranteAgregarPlatoComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.plato = new Plato();
   }
 
+  ngOnChanges(): void {
+    this.ngOnInit();
+  
+  }
 }

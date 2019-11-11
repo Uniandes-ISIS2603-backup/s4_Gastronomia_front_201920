@@ -49,17 +49,18 @@ administradores: Administrador[];
      * @param author The author's information updated
      * @returns The confirmation that the author was updated
      */
-    // updateAdministrador(administrador): Observable<AdministradorDetail> {
-   // return this.http.put<AdministradorDetail>(environment.apiURL + administradores + '/' + administrador.id, administrador);
-  //}
+     updateAdministrador(administrador): Observable<AdministradorDetail> {
+    return this.http.put<AdministradorDetail>(environment.apiURL + administradores + '/' + administrador.id, administrador);
+  }
 
   /**
   * Deletes an author from the BookStore
   * @param authorId The id of the author
   * @returns The confirmation that the author was deleted
   */
-  //deleteAdministrador(administradorId): Observable<boolean> {
-   // return this.http.delete<boolean>(environment.apiURL + administradores + '/' + administradorId);
- //  }
+  
+  deleteAdministrador(administradorId): Observable<boolean> {
+   return this.http.delete<boolean>(environment.apiURL + administradores + '/' + administradorId);
+  }
 
 }

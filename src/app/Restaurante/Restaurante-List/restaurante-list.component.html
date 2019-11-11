@@ -6,9 +6,12 @@
                 <div class="card-body">
                   <h5 class="card-title">{{restaurante.nombre}}</h5>
                   <p class="card-text">Direccion: {{restaurante.direccion}}</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="#" routerLink="/restaurantes/{{restaurante.id}}" class="btn btn-primary">más Info</a>
                 </div>
               </div>
         </div>
+    </div>
+    <div class="row">
+        <a href="#" routerLink="/restaurantes/create" class="btn btn-primary">crear</a>
     </div>
 </div>
