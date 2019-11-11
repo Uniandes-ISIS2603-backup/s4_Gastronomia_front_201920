@@ -1,0 +1,28 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Tarjeta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let i of tarjetas">
+						<td style="cursor: pointer;">
+							<a class="figure-caption" (click)="onSelected(i.id)">{{i.numero}}</a>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="border row">
+		<div class="col">
+			<div *ngIf="selectedTarjeta">
+				<app-tarjeta-detail [tarjetaDetail]="selectedTarjeta"> </app-tarjeta-detail>
+			</div>
+		</div>
+	</div>
+</div>

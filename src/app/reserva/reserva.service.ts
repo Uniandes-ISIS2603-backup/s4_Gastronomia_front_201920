@@ -3,8 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Reserva } from './reserva';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const reservas = 'reservas.json';
+import { environment } from '../../environments/environment';
+
+const API_URL = environment.apiURL;
+const reservas = '/reservas';
 
 @Injectable()
 export class ReservaService {
@@ -20,8 +22,8 @@ export class ReservaService {
        return this.http.get<Reserva[]>(API_URL + reservas);
    }
 
-   getReservaDetail(id: number) : Observable<Reserva> {
-       return this.http.get<Reserva>(API_URL + 'reserva' + id + '.json')
+   getReservaDetail(reservaId: number) : Observable<Reserva> {
+       return this.http.get<Reserva>(API_URL + + reservas + '/' + reservaId)
    }
 
    /**
@@ -29,7 +31,7 @@ export class ReservaService {
     * @param reserva The new reservation
     * @returns The confirmation that the reservation was created
     */
-   createReserva(reserva): Observable<Reserva> {
+   createReserva(reserva : Reserva): Observable<Reserva> {
     return this.http.post<Reserva>(API_URL + reservas, reserva);
     }
 
