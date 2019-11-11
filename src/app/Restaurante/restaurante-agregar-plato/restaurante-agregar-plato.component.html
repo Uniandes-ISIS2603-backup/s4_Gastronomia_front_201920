@@ -15,17 +15,17 @@
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="platoPrecio"><b>Cvv</b></label>
+                            <label for="platoPrecio"><b>Precio</b></label>
                             <input type="text" name="platoPrecio" class="form-control" id="platoPrecio" [(ngModel)]="plato.precio"
-                                   #platoPrecio="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoPrecio.invalid s}" required>
+                                   #platoPrecio="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoPrecio.invalid }" required>
                                    <div class="invalid-feedback">
-                                <div>El plato es requerido</div>
+                                <div>El precio del  plato es requerido</div>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="platoDescripcion"><b>Fecha</b></label>
+                            <label for="platoDescripcion"><b>Descripcion</b></label>
                             <input type = "text" name="platoDescripcion" class="form-control" id="platoDescripcion" [(ngModel)]="plato.descripcion"
                                       #platoDescripcion="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoDescripcion.invalid }"
                                       required>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col">
                             <div class="form-group">
-                                <label for="platoImagen"><b>Fecha</b></label>
+                                <label for="platoImagen"><b>Imagen</b></label>
                                 <input type = "text" name="platoImagen" class="form-control" id="platoImagen" [(ngModel)]="plato.rutaImagen"
                                           #platoImagen="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoImagen.invalid }"
                                           required>
@@ -48,8 +48,8 @@
                     
                 </div>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Post review</button>
+                    <button type="submit" class="btn btn-primary">Crear Plato</button>
                 </div>
             </form>
         </div>
-    </div>
+    </div>>

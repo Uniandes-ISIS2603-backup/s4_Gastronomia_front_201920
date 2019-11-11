@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import{ToastrService} from 'ngx-toastr';
+
+import {FoodBlogService} from '../foodblog.service';
+
+import{FoodBlog} from '../foodblog';
 
 @Component({
   selector: 'app-foodblog-create',
@@ -7,9 +13,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodblogCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private foodBlogService: FoodBlogService,
+    private toastrService: ToastrService
+  ) { }
 
-  ngOnInit() {
+  foodBlog:FoodBlog;
+
+  @Output() cancel= new EventEmitter();
+
+  @Output() create = new EventEmitter();
+
+  createFoodBlog(): FoodBlog{
+        this.foodBlogService.createFoodBlog(this.foodBlog).subscribe((foodBlog)=>{this.foodBlog=foodBlog
+        this.create.emit();
+        this.toastrService.success("Se creo el foodblog", "Creacion del foodBlog");}
+      , err  => {this.toastrService.error(err,"Error");});
+      return this.foodBlog;
+  }
+
+  ngOnInit() 
+  {
+    this.foodBlog= new FoodBlog();
   }
 
 }
