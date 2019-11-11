@@ -6,9 +6,11 @@ import { Cliente } from './cliente';
 import { ClienteDetail } from './cliente-detail';
 import { Tarjeta } from './tarjeta';
 
+import { environment } from '../../environments/environment';
 
-const API_URL = "../../assets/";
-const clientes = 'clientes.json';
+
+const API_URL = environment.apiURL;
+const clientes = '/clientes';
 const tarjetas = '/tarjetas';
 
 @Injectable()
@@ -22,11 +24,11 @@ export class ClienteService {
     
   
     getClientes() : Observable<Cliente[]> {
-       return this.http.get<Cliente[]>(API_URL + clientes);
+      return this.http.get<Cliente[]>(API_URL + clientes);
     }
 
-    getClienteDetail(id : number) : Observable<ClienteDetail> {
-       return this.http.get<ClienteDetail>(API_URL + 'cliente' + id + '.json');
+    getClienteDetail(clienteId : number) : Observable<ClienteDetail> {
+      return this.http.get<ClienteDetail>(API_URL + clientes + '/' + clienteId);
     }
 
    /**
@@ -34,8 +36,8 @@ export class ClienteService {
     * @param cliente The new client
     * @returns The confirmation that the client was created
     */
-    createCliente(cliente): Observable<Cliente> {
-        return this.http.post<Cliente>(API_URL + clientes, cliente);
+    createCliente(cliente: Cliente): Observable<Cliente> {
+      return this.http.post<Cliente>(API_URL + clientes, cliente);
     }
 
 

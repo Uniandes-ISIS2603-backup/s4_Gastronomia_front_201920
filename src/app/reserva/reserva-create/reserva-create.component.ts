@@ -42,13 +42,13 @@ export class ReservaCreateComponent implements OnInit {
 
     let dateB: Date = new Date(this.reserva.fecha.year, this.reserva.fecha.month - 1, this.reserva.fecha.day);
 
-    this.reserva.fecha = this.dp.transform(dateB, 'yyyy-MM-dd');
+    this.reserva.fecha = this.dp.transform(dateB, "yyyy-MM-dd'T'HH:mm:ss'Z[UTC]'");
     console.log(this.reserva);
     this.reservaService.createReserva(this.reserva)
         .subscribe((reserva) => {
             this.reserva = reserva;
             this.create.emit();
-            this.toastrService.success("The reservation was created", "Client creation");
+            this.toastrService.success("The reservation was created", "Reservation creation");
 
         });
     return this.reserva;
