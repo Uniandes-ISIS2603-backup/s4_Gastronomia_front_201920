@@ -12,19 +12,13 @@ import { Plato } from '../plato';
     @Input() restaurantePlatos: Plato[];
 
     updatePlatos(platos: Plato[]):void{
-      console.log("Es que nunca me llaman");
-        platos.forEach(o => 
-          {
-            console.log(o.nombreComida);
-          }
-          );
+
         this.restaurantePlatos = platos;
     }
 
     public isCollapsed = false;
       
     ngOnInit() {
-      console.log("Hola");
 
     }
   
