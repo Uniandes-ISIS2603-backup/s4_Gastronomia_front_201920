@@ -2,14 +2,16 @@ import { Restaurante } from "./Restaurante";
 
 export class Plato 
 {
-    precio: number;
+    id:number;
 
     descripcion :string;
 
     nombreComida: string;
 
-    restaurante: Restaurante;
+    precio: number;
 
     rutaImagen: string;
+
+    restaurante: Restaurante;
 
 }

@@ -21,17 +21,15 @@
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <h3 class="mb-0">Nuestros Platos</h3>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody id="Menu">
-              </tbody>
-            </table>            
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoListComponent.isCollapsed,'btn-outline-primary':!platoListComponent.isCollapsed}" (click)="togglePlatos()">
+              Platos
+  </button>
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoAgregarComponent.isCollapsed,'btn-outline-primary':!platoAgregarComponent.isCollapsed}" (click)="toggleCreatePlato()">
+              Crear un plato
+  </button>
+          <app-restaurante-plato [restaurantePlatos] = "restauranteDetail.platos"></app-restaurante-plato> 
+          <app-restaurante-agregar-plato [restaurante] = "restauranteDetail" (updatePlatos) = "updatePlatos()"></app-restaurante-agregar-plato>  
+
           </div>          
         </div>
       </div>
