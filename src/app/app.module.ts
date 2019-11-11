@@ -14,17 +14,8 @@ import {AppComponent} from './app.component';
 import {AdministradorModule} from './administrador/administrador.module';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-<<<<<<< HEAD
-
 import {FacturaModule} from './factura/factura.module';
 import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
-
-
-
-=======
-import {FacturaModule} from './factura/factura.module';
-import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
->>>>>>> 41c1a3b130bcf301ecf758c601933101d388167a
 import { ClienteModule } from './cliente/cliente.module';
 import { ReservaModule } from './reserva/reserva.module';
 import {RestauranteModule} from './Restaurante/restaurante.module';
