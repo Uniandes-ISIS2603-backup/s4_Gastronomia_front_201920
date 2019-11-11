@@ -22,6 +22,9 @@ import { TipoComidaCreateComponent } from '../tipo-comida/tipo-comida-create/tip
 import { RestauranteListComponent } from '../Restaurante/Restaurante-List/restaurante-list.component';
 import { RestauranteCreateComponent } from '../Restaurante/Restaurante-create/Restaurante-create.component';
 import { RestauranteDetailComponent } from '../Restaurante/Restaurante-detail/Restaurante_detail.component';
+import { FoodblogDetailComponent } from '../foodblog/foodblog-detail/foodblog-detail.component';
+import { FoodblogListComponent } from '../foodblog/foodblog-list/foodblog-list.component';
+import { FoodblogCreateComponent } from '../foodblog/foodblog-create/foodblog-create.component';
 
 
 
@@ -183,16 +186,32 @@ const routes: Routes = [
     {
         path: 'facturas',
         children: [
-           
-        {        
+            {        
                 path: 'list',
                 component: FacturaListComponent
+            },
+            {
+                path: 'create',
+                component: FacturaCreateComponent
+            }
+        ]
+    },
+    {
+        path: 'blog',
+        children: [
+        {        
+            path: 'list',
+            component: FoodblogListComponent
         },
         {
-            path: 'create',
-            component: FacturaCreateComponent
+            path:'detail',
+            component: FoodblogDetailComponent
+
+        },
+        {
+                path: 'create',
+                component: FoodblogCreateComponent
         }
-       
         ]
     },
     {
@@ -206,8 +225,7 @@ const routes: Routes = [
         {
             path: 'create',
             component: TipoComidaCreateComponent
-        } 
-       
+        }   
         ]
     }
 

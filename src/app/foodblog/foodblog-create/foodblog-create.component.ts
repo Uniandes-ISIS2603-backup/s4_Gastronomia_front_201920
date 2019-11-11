@@ -27,7 +27,7 @@ export class FoodblogCreateComponent implements OnInit {
   createFoodBlog(): FoodBlog{
         this.foodBlogService.createFoodBlog(this.foodBlog).subscribe((foodBlog)=>{this.foodBlog=foodBlog
         this.create.emit();
-        this.toastrService.success("Se creo el foodblog", "Creacion del foodBlogt");}
+        this.toastrService.success("Se creo el foodblog", "Creacion del foodBlog");}
       , err  => {this.toastrService.error(err,"Error");});
       return this.foodBlog;
   }

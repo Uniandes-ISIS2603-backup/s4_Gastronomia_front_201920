@@ -9,7 +9,7 @@ export class FoodBlog{
     /**
      * La foto de la comida documentada
      */
-    archivosMultimedia:string;
+    archivoMultimedia:string;
     /**
      * EL numero de me gusta que tiene esa entrada del blog
      */
@@ -21,5 +21,5 @@ export class FoodBlog{
     /**
      * Los comentarios que tiene el foodblog
      */
-    comentarios:string[];
+    comentarios:string;
 }
