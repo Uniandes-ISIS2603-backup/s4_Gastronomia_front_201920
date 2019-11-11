@@ -1,5 +1,13 @@
 <div id="collapsePlato" [ngbCollapse]="isCollapsed">
     <table class="table table-striped">
+            <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
         <tbody>
             <tr *ngFor="let plato of restaurantePlatos">
                 <td><span id="restaurante-plato"><b>{{plato.nombre}}</b></span></td>
