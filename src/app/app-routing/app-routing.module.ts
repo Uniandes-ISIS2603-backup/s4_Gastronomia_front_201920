@@ -15,6 +15,9 @@ import { AdministradorCreateComponent } from '../administrador/administrador-cre
 import { RestauranteListComponent } from '../Restaurante/Restaurante-List/restaurante-list.component';
 import { RestauranteCreateComponent } from '../Restaurante/Restaurante-create/Restaurante-create.component';
 import { RestauranteDetailComponent } from '../Restaurante/Restaurante-detail/Restaurante_detail.component';
+import { FoodblogDetailComponent } from '../foodblog/foodblog-detail/foodblog-detail.component';
+import { FoodblogListComponent } from '../foodblog/foodblog-list/foodblog-list.component';
+import { FoodblogCreateComponent } from '../foodblog/foodblog-create/foodblog-create.component';
 
 const routes: Routes = [
     
@@ -152,6 +155,26 @@ const routes: Routes = [
             component: AuthLoginComponent
         }
        
+            
+        ]
+    },
+    {
+        path: 'blog',
+        children: [
+           
+        {        
+                path: 'list',
+                component: FoodblogListComponent
+        },
+        {
+            path:'detail',
+            component: FoodblogDetailComponent
+
+        },
+        {
+                path: 'create',
+                component: FoodblogCreateComponent
+        }
             
         ]
     }

@@ -25,6 +25,7 @@ import { FoodBlog } from './foodblog';
     CommonModule,
     FormsModule
   ],
-  providers:[FoodBlogService]
+  providers:[FoodBlogService],
+  exports:[FoodblogListComponent]
 })
 export class FoodblogModule { }

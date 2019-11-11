@@ -3,6 +3,7 @@ import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { FoodBlogService } from '../foodblog.service';
 import { ToastrService } from 'ngx-toastr';
 import { FoodBlog } from '../foodblog';
+import { FoodblogDetailComponent } from '../foodblog-detail/foodblog-detail.component';
 
 @Component({
   selector: 'app-foodblog',
@@ -21,14 +22,14 @@ export class FoodblogListComponent implements OnInit {
   /**
    * Arreglo de los foodblogs que se van a desplegar
    */
-foodBlogs: FoodBlog[];
+foodBlogs: FoodBlog[] ;
 
 /**
     * Shows or hides the create component
     */
    showCreate: boolean;
 
-   /**
+   /**S
     * Shows or hides the edit component.
     */
    showEdit: boolean;
@@ -45,6 +46,8 @@ foodBlogs: FoodBlog[];
       this.foodBlogService.getFoodBLogs()
       .subscribe(foodBlogs => {this.foodBlogs =this.foodBlogs});
     }
+
+    // getFoodBlogDetail():
 
     /**
     * Shows or hides the create component
@@ -80,6 +83,7 @@ foodBlogs: FoodBlog[];
       this.showCreate = false;
           this.showEdit = false;
           this.getFoodBlogs();
+          console.log("BAbato");
   }
 
 }
