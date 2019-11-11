@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, } from '@angular/core';
 import { Plato } from '../plato';
+import {RestauranteService} from '../Restaurante.service';
 
 @Component({
     selector:'app-restaurante-plato',
@@ -7,24 +8,24 @@ import { Plato } from '../plato';
     styleUrls: ['./restaurante-plato.component.css']
   })
   export class RestaurantePlatoComponent implements OnInit {
+   
+    constructor(private restauranteService: RestauranteService)
+    {
+
+    }
 
 
+
+    
     @Input() restaurantePlatos: Plato[];
 
     updatePlatos(platos: Plato[]):void{
-      console.log("Es que nunca me llaman");
-        platos.forEach(o => 
-          {
-            console.log(o.nombreComida);
-          }
-          );
         this.restaurantePlatos = platos;
     }
 
     public isCollapsed = false;
       
     ngOnInit() {
-      console.log("Hola");
 
     }
   
