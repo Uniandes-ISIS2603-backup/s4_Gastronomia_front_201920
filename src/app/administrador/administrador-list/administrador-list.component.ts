@@ -89,6 +89,25 @@ selectedAdministrador:Administrador;
             this.selectedAdministrador = selectedAdministrador;
         });
 }
+updateAdministrador(): void {
+  this.showEdit = false;
+  this.showView = true;
+}
+
+  /**
+    * Deletes an author
+    */
+   deleteAdministrador(administradorId): void {
+    
+                    this.administradorService.deleteAdministrador(administradorId).subscribe(() => {
+                        this.toastrService.error("El administrador fue eliminado correctamente", "Administrador eliminado");
+                        this.ngOnInit();
+                    }, err => {
+                        this.toastrService.error(err, "Error");
+                    });
+}
+
+
   ngOnInit() {
     this.showCreate = false;
     this.showView = false;
