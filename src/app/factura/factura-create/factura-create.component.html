@@ -10,8 +10,8 @@
                       <input class="form-control" id="fecha" name="fecha" [(ngModel)]="factura.fecha"
                   ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fecha="ngModel" [ngClass]="{'is-invalid': f.submitted && (fecha.untouched || fecha.invalid) }"
                   required>
-              <div class="invalid-feedback">
-                  <div>The reservation's date is missing</div>
+                  <div class="invalid-feedback">
+                      <div>The factura's date is missing</div>
               </div>
           </div>
       </div>
