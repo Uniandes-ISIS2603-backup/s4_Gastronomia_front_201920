@@ -42,4 +42,8 @@ export class RestauranteService
     {
      return this.http.post<Plato>(API_URL + restaurantes + '/' + restauranteId + platos, plato);
     }
+    deletePlato(restauranteId, platoId)
+    {
+        return this.http.delete<RestauranteDetail>(API_URL + restaurantes + '/' + restauranteId + platos + '/' + platoId);
+    }
 }
