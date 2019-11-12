@@ -4,14 +4,17 @@
       <h2 class="text-center">Registrar factura</h2>
       <br>
       <form name="registrar-factura" (ngSubmit)="f.form.valid && registrarFactura()" #f="ngForm" novalidate>
-              <div class="form-group">
+                  <div class="form-group">
                       <label for="fecha"><b>Fecha</b></label>
-                      <input type="text" name="fecha" class="form-control" id="fecha" [(ngModel)]="factura.fecha"
-                          #fecha="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fecha.invalid }" required>
-                      <div class="invalid-feedback">
-                          <div>The factura's date is missing</div>
-                      </div>
-                  </div>
+                      <div [ngClass]="{ 'is-invalid': f.submitted && fecha.invalid }">
+                      <input class="form-control" id="fecha" name="fecha" [(ngModel)]="factura.fecha"
+                  ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fecha="ngModel" [ngClass]="{'is-invalid': f.submitted && (fecha.untouched || fecha.invalid) }"
+                  required>
+              <div class="invalid-feedback">
+                  <div>The reservation's date is missing</div>
+              </div>
+          </div>
+      </div>
                   <div class="form-group">
                       <label for="valor"><b>Valor</b></label>
                       <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="factura.valor"
@@ -37,8 +40,10 @@
                       </div>
                   </div>
                   
-          <div class="justify-content-center align-self-center">
+          <div class="row form-inline justify-content-center align-self-center">
               <button type="submit" class="btn btn-primary" (click)="createFactura()"> Registrar</button>
+              <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
           </div>
       </form>
   </div>
