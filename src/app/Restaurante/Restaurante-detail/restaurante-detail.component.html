@@ -27,7 +27,7 @@
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoAgregarComponent.isCollapsed,'btn-outline-primary':!platoAgregarComponent.isCollapsed}" (click)="toggleCreatePlato()">
               Crear un plato
   </button>
-          <app-restaurante-plato [restaurantePlatos] = "restauranteDetail.platos"></app-restaurante-plato> 
+          <app-restaurante-plato [restaurantePlatos] = "restauranteDetail.platos" [restaurante] = "restauranteDetail"></app-restaurante-plato> 
           <app-restaurante-agregar-plato [restaurante] = "restauranteDetail" (updatePlatos) = "updatePlatos()"></app-restaurante-agregar-plato>  
 
           </div>          
