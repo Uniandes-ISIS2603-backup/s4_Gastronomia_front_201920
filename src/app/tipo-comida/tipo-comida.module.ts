@@ -12,6 +12,7 @@ import { TipoComidaCreateComponent } from './tipo-comida-create/tipo-comida-crea
 
 
 import { TipoComidaService } from './tipo-comida.service';
+import { TipoComidaEditComponent } from './tipo-comida-edit/tipo-comida-edit.component';
 
 
 
@@ -26,7 +27,7 @@ import { TipoComidaService } from './tipo-comida.service';
     NgbModule
   ],
   exports: [TipoComidaListComponent],
-  declarations: [TipoComidaListComponent, TipoComidaCreateComponent],
+  declarations: [TipoComidaListComponent, TipoComidaCreateComponent, TipoComidaEditComponent],
   providers: [TipoComidaService]
 })
 

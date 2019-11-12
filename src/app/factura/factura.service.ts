@@ -31,6 +31,15 @@ export class FacturaService {
    return this.http.post<Factura>(environment.apiURL + facturas, factura);
   }
 
-
+ 
+    updateFactura(factura): Observable<Factura> {
+        return this.http.put<Factura>(environment.apiURL + facturas + '/' + factura.id, factura);
+      }
+    
+     
+      
+      deleteFactura(facturasId): Observable<boolean> {
+       return this.http.delete<boolean>(environment.apiURL + facturas + '/' + facturasId);
+      }
 
 }

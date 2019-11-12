@@ -12,6 +12,8 @@ import { FacturaCreateComponent } from './factura-create/factura-create.componen
 
 
 import { FacturaService } from './factura.service';
+import { FacturaEditComponent } from './factura-edit/factura-edit.component';
+
 
 
 
@@ -26,7 +28,7 @@ import { FacturaService } from './factura.service';
     NgbModule
   ],
   exports: [FacturaListComponent],
-  declarations: [FacturaListComponent, FacturaCreateComponent],
+  declarations: [FacturaListComponent, FacturaCreateComponent, FacturaEditComponent],
   providers: [FacturaService]
 })
 export class FacturaModule { }
