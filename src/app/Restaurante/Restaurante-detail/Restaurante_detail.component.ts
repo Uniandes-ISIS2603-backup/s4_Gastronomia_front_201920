@@ -7,6 +7,8 @@ import {Restaurante} from '../Restaurante';
 import { RestauranteDetail } from '../Restaurante-Detail';
 import { Administrador } from '../../administrador/administrador';
 import { s } from '@angular/core/src/render3';
+import { Plato } from '../plato';
+import { Reserva } from '../../reserva/reserva';
 
 @Component({
     selector:'app-restaurante-detail',
@@ -17,8 +19,8 @@ import { s } from '@angular/core/src/render3';
 export class RestauranteDetailComponent{
     restauranteDetail:RestauranteDetail;
     id:number;
-    //platos:Plato[]
-    //reservas:Reserva[]
+    platos:Plato[]
+    reservas:Reserva[]
     navigationSubscription;
     administrador:Administrador;
     benefits:String[];
@@ -39,33 +41,7 @@ export class RestauranteDetailComponent{
                 this.ngOnInit();
             }
         });
-    }
-
-    getBenefits():String[]
-    {
-        let s:String[]=[];
-        if(this.restauranteDetail.musicaEnVivo)
-        {
-            s.push("Música En Vivo");
-        }
-        if(this.restauranteDetail.petFriendly)
-        {
-            s.push("Pet Friendly");
-        }
-        if(this.restauranteDetail.servicioALaMesa)
-        {
-            s.push("Servicio a la Mesa");
-        }
-        if(this.restauranteDetail.descuentoCumpleanos)
-        {
-            s.push("Descuento De Cumpleaños");
-        }
-        if(this.restauranteDetail.zonaDeFumadores)
-        {
-            s.push("Zona Fumadore");
-        }
-        return s;
-    }
+    }    
 
     getDetailRestaurant():void{
         this.restauranteService.getRestauranteDetail(this.id)
@@ -78,11 +54,16 @@ export class RestauranteDetailComponent{
         this.id = +this.route.snapshot.paramMap.get('id');
         this.restauranteDetail = new RestauranteDetail();
         this.getDetailRestaurant();        
-        this.benefits=this.getBenefits();
+        
     }
     ngOnDestroy() {
         if (this.navigationSubscription) {
             this.navigationSubscription.unsubscribe();
         }
+    }
+
+    deleteThis()
+    {
+        this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
     }
 }

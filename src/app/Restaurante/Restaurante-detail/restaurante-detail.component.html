@@ -16,7 +16,7 @@
           </div>          
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-2">        
       <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
@@ -46,15 +46,55 @@
                   <th></th>                                 
                 </tr>
               </thead>
-              <tbody *ngFor="let s of benefits">
+              <tbody>
                   <tr>
                       <td>
-                          {{s}}
+                          Descuento Cumpleaños
                       </td>
                       <td>
-                          X
+                          {{restauranteDetail.descuentoCumpleanos}}
                       </td>
                   </tr>
+                  <tr>
+                      <td>
+                          Zona De Fumadores
+                      </td>
+                      <td>
+                          {{restauranteDetail.zonaDeFumadores}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Pet Friendly
+                      </td>
+                      <td>
+                          {{restauranteDetail.petFriendly}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Servicio A La Mesa
+                      </td>
+                      <td>
+                          {{restauranteDetail.servicioALaMesa}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Música En Vivo
+                      </td>
+                      <td>
+                          {{restauranteDetail.musicaEnVivo}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <a href="#" class="btn btn-primary">Modificar</a>
+                      </td>
+                      <td>
+                          <a href="#" class="btn btn-danger" (click)="deleteThis()" routerLink="/restaurantes/list">Eliminar</a>
+                      </td>
+                    </tr>
               </tbody>
             </table>   
           </div>          
