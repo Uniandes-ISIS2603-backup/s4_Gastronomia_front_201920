@@ -25,9 +25,17 @@ export class RestauranteListComponent implements OnInit
 
     maxPrecio: Number;
 
+    lat:Number;
+
+    lon:Number;
+
+    x = document.getElementById("GGG");
+
     constructor(private restauranteService: RestauranteService, private route: ActivatedRoute) {}
 
     allRest: String = "no";
+
+    map:Boolean;
 
     getBRestaurantes(): void {
         this.restauranteService.getRestaurantes()
@@ -36,30 +44,123 @@ export class RestauranteListComponent implements OnInit
             });
     }
     getByname():void{
-        //if search empty none
-        let temp: Restaurante[];
+        let t=(<HTMLInputElement>document.getElementById("Buscador")).value;
+        
         for(var i=0;i<this.restaurantes.length;i++)
         {
-            if(this.restaurantes[i].nombre.includes(""))
+            if(!this.restaurantes[i].nombre.includes(t))
             {
-                temp.push(this.restaurantes[i]);
+                this.restaurantes.splice(i,1);
+                i--;
             }
         }
     }
     getByBenefits():void{
+        let cumpleanos=(<HTMLInputElement>document.getElementById("Cumpleanos"));
+        let fumadores=(<HTMLInputElement>document.getElementById("Fumadores"));
+        let pets=(<HTMLInputElement>document.getElementById("Pets"));
+        let mesa=(<HTMLInputElement>document.getElementById("Mesa"));
+        let musica=(<HTMLInputElement>document.getElementById("Musica"));
 
+        if(cumpleanos.checked)
+        {
+            for(var i=0;i<this.restaurantes.length;i++)
+            {
+                if(!this.restaurantes[i].descuentoCumpleanos)
+                {
+                    this.restaurantes.splice(i,1);
+                    i-=1;
+                }
+            }
+        }
+        if(fumadores.checked)
+        {
+            for(var i=0;i<this.restaurantes.length;i++)
+            {
+                if(!this.restaurantes[i].zonaDeFumadores)
+                {
+                    this.restaurantes.splice(i,1);
+                    i-=1;
+                }
+            }
+        }
+        if(pets.checked)
+        {
+            for(var i=0;i<this.restaurantes.length;i++)
+            {
+                if(!this.restaurantes[i].petFriendly)
+                {
+                    this.restaurantes.splice(i,1);
+                    i-=1;
+                }
+            }
+        }
+        if(mesa.checked)
+        {
+            for(var i=0;i<this.restaurantes.length;i++)
+            {
+                if(!this.restaurantes[i].servicioALaMesa)
+                {
+                    this.restaurantes.splice(i,1);
+                    i-=1;
+                }
+            }
+        }
+        if(musica.checked)
+        {
+            for(var i=0;i<this.restaurantes.length;i++)
+            {
+                if(!this.restaurantes[i].musicaEnVivo)
+                {
+                    this.restaurantes.splice(i,1);
+                    i-=1;
+                }
+            }
+        }
     }
     getByOverReservaMin():void{
-
+        let m=(<HTMLInputElement>document.getElementById("minReserva")).valueAsNumber;
+        for(var i=0; i<this.restaurantes.length;i++)
+        {
+            if(this.restaurantes[i].costoReserva<m)
+            {
+                this.restaurantes.splice(i,1);
+                i--;
+            }
+        }
     }
     getByBelowReservaMax():void{
-
+        let m=(<HTMLInputElement>document.getElementById("maxReserva")).valueAsNumber;
+        for(var i=0; i<this.restaurantes.length;i++)
+        {
+            if(this.restaurantes[i].costoReserva>m)
+            {
+                this.restaurantes.splice(i,1);
+                i--;
+            }
+        }
     }
     getByOverPrecioMin():void{
-
+        let m=(<HTMLInputElement>document.getElementById("minPrecio")).valueAsNumber;
+        for(var i=0; i<this.restaurantes.length;i++)
+        {
+            if(this.restaurantes[i].costoReserva<m)
+            {
+                this.restaurantes.splice(i,1);
+                i--;
+            }
+        }
     }
     getByBelowPrecioMax():void{
-
+        let m=(<HTMLInputElement>document.getElementById("maxPrecio")).valueAsNumber;
+        for(var i=0; i<this.restaurantes.length;i++)
+        {
+            if(this.restaurantes[i].costoReserva>m)
+            {
+                this.restaurantes.splice(i,1);
+                i--;
+            }
+        }
     }
     getByTipo(t:String):void{
         let c: Restaurante[];
@@ -110,11 +211,42 @@ export class RestauranteListComponent implements OnInit
             }
         }    
     }
+
+    change():void{
+        this.map=!this.map;
+        this.getLocation();
+    }
+
     ngOnInit()
     {
         this.getBRestaurantes();
         this.allRest="yes";
         this.getAllTipos();
+        this.getMaxMin();
+        this.map=false;
+        
+    }
+
+    getLocation():void{
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this.showPosition);
+          } else { 
+            alert("This devive does not support GeoLoc");
+          }
+    }
+    showPosition(position) {
+        try
+        {
+            this.lat=position.coords.latitude;
+            this.lon=position.coords.longitude;
+        }
+        catch(error)
+        {
+            this.lat=4.602973;
+            this.lon=-74.065081;
+        }        
+        alert("This is your location: "+this.lon+", "+this.lat);
     }
 }
 

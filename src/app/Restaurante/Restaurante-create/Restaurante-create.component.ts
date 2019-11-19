@@ -32,20 +32,7 @@ export class RestauranteCreateComponent implements OnInit
    createRestaurante(): Restaurante
     {       
       this.restaurante.horario=new Date();
-      alert(this.restaurante.nombre+"\n"+
-            this.restaurante.contrasena+"\n"+
-            this.restaurante.direccion+"\n"+
-            this.restaurante.tipoRestaurante+"\n"+
-            this.restaurante.precioPorPersona+"\n"+
-            this.restaurante.descuentoCumpleanos+"\n"+
-            this.restaurante.zonaDeFumadores+"\n"+
-            this.restaurante.petFriendly+"\n"+
-            this.restaurante.servicioALaMesa+"\n"+
-            this.restaurante.musicaEnVivo+"\n"+
-            this.restaurante.costoReserva+"\n"+
-            this.restaurante.horario+"\n"+
-            this.restaurante.imagen);
-    this.restauranteService.createRestaurante(this.restaurante)
+      this.restauranteService.createRestaurante(this.restaurante)
       .subscribe((restaurante) => {
         this.restaurante = restaurante;
         this.create.emit();
