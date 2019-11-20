@@ -28,6 +28,8 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 
     @Input() restaurante: Restaurante;
 
+    public isCollapsed = false;
+
     updatePlatos(platos: Plato[]):void{
         this.restaurantePlatos = platos;
     }
@@ -56,7 +58,12 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
         ]
     }); 
     }
-    public isCollapsed = false;
+    
+
+    ocultar()
+    {
+     this.isCollapsed = true;
+    }
       
     ngOnInit() {
 
