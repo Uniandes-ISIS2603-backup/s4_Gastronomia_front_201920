@@ -11,6 +11,7 @@ import {RestauranteListComponent} from './Restaurante-List/restaurante-list.comp
 import {RestauranteCreateComponent} from './Restaurante-create/Restaurante-create.component';
 import {RestauranteDetailComponent} from './Restaurante-detail/Restaurante_detail.component';
 import {RestauranteAgregarPlatoComponent} from './restaurante-agregar-plato/restaurante-agregar-plato.component';
+import{RestauranteEditarPlatoComponent} from './restaurante-editar-plato/restaurante-editar-plato.component'
  
 
 import{AdministradorModule} from '../administrador/administrador.module';
@@ -30,7 +31,7 @@ import { RestauranteEditComponent } from './Restaurante-edit/restaurante-edit.co
         AdministradorModule,
         ReactiveFormsModule,
         NgxPermissionsModule],
-        declarations:[RestauranteListComponent,RestauranteCreateComponent,RestauranteDetailComponent,RestauranteAgregarPlatoComponent,RestaurantePlatoComponent, RestauranteEditComponent ],
+        declarations:[RestauranteListComponent,RestauranteCreateComponent,RestauranteDetailComponent,RestauranteAgregarPlatoComponent,RestaurantePlatoComponent, RestauranteEditComponent,RestauranteEditarPlatoComponent ],
         providers:[RestauranteService],
         exports:[RestauranteListComponent]
 })

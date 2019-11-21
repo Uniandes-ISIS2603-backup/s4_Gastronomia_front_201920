@@ -17,10 +17,11 @@
                 <td>{{plato.precio}}</td>
                 <td>{{plato.descripcion}}</td>
                 <td><img src = {{plato.rutaImagen}} class= "img-fluid" alt="..."></td>
-                <td ><button class="btn btn-primary" (click) = ocultar()><span class="fa fa-pencil"></span></button></td>
+                <td ><button class="btn btn-primary" (click) = editar(plato)><span class="fa fa-pencil"></span></button></td>
                 
                 <td><button class="btn btn-danger text-center" (click)="deletePlato(plato.id)"><span class="fa fa-trash"></span></button></td>
             </tr>
         </tbody>
     </table>
+    <app-restaurante-editar-plato  [restaurante2] = "restaurante"></app-restaurante-editar-plato>
 </div>
