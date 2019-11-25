@@ -75,6 +75,7 @@ const inputSearchBox: HTMLElement = document.getElementById("search-box");
     buscarPorNombre()
     {
       let text = inputSearchBox["value"];
+      clearCoursesInTable();
     }
 
    

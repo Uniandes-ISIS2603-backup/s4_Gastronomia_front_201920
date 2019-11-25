@@ -6,7 +6,7 @@ export class Plato
 
     descripcion :string;
 
-    nombreComida: string;
+    nombre: string;
 
     precio: number;
 
