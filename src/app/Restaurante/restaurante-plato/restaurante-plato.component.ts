@@ -5,7 +5,11 @@ import { Restaurante } from '../Restaurante';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
-import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restaurante-editar-plato.component'
+import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restaurante-editar-plato.component';
+
+const coursesTbody: HTMLElement = document.getElementById('platosTabla');
+const inputSearchBox: HTMLElement = document.getElementById("search-box");
+
 @Component({
     selector:'app-restaurante-plato',
     templateUrl: './restaurante-plato.component.html',
@@ -28,6 +32,8 @@ import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restau
     @Input() restaurantePlatos: Plato[];
 
     @Input() restaurante: Restaurante;
+
+    restauranteFiltro: Plato[];
 
     public isCollapsed = false;
 
@@ -66,14 +72,22 @@ import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restau
     }); 
     }
     
-
-    ocultar()
+    buscarPorNombre()
     {
-     this.isCollapsed = true;
+      let text = inputSearchBox["value"];
     }
+
+   
       
     ngOnInit() {
+      this.restaurantePlatos = this.restauranteFiltro;
 
     }
   
+  }
+
+  function clearCoursesInTable() {
+    while (coursesTbody.hasChildNodes()) {
+      coursesTbody.removeChild(coursesTbody.lastChild);
+    }
   }

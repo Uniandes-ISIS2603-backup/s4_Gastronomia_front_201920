@@ -1,6 +1,12 @@
 <div id="collapsePlato" [ngbCollapse]="isCollapsed">
-    <table class="table table-striped">
-            <thead class="thead-dark">
+    <br>
+        <div class="col">
+                <input type="text" class="form-control" id="search-box" placeholder="Buscar por nombre">
+                <button type="button" id="button-filterByName" class="btn btn-success">Aplicar</button>
+            </div>
+            <br>
+    <table class="table table-striped" id="platosTabla"> 
+            <thead class="thead-dark">  
                     <tr>
                         <th>Nombre</th>
                         <th>Precio</th>
