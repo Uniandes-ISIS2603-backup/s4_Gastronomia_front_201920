@@ -11,7 +11,7 @@ import {RestauranteListComponent} from './Restaurante-List/restaurante-list.comp
 import {RestauranteCreateComponent} from './Restaurante-create/Restaurante-create.component';
 import {RestauranteDetailComponent} from './Restaurante-detail/Restaurante_detail.component';
 import {RestauranteAgregarPlatoComponent} from './restaurante-agregar-plato/restaurante-agregar-plato.component';
- 
+
 
 import{AdministradorModule} from '../administrador/administrador.module';
 

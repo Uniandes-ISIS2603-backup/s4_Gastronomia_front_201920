@@ -9,6 +9,10 @@ import { Administrador } from '../../administrador/administrador';
 import { s } from '@angular/core/src/render3';
 import { Plato } from '../plato';
 import { Reserva } from '../../reserva/reserva';
+import {} from 'googlemaps';
+
+
+
 
 @Component({
     selector:'app-restaurante-detail',
@@ -26,7 +30,7 @@ export class RestauranteDetailComponent{
     benefits:String[];
     esAdmi:Boolean;
     esVisitante:Boolean;
-
+    
     constructor(
         private restauranteService: RestauranteService,
         private route: ActivatedRoute,
@@ -54,7 +58,7 @@ export class RestauranteDetailComponent{
         this.id = +this.route.snapshot.paramMap.get('id');
         this.restauranteDetail = new RestauranteDetail();
         this.getDetailRestaurant();        
-        
+       
     }
     ngOnDestroy() {
         if (this.navigationSubscription) {
@@ -66,4 +70,6 @@ export class RestauranteDetailComponent{
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
     }
+    
+   
 }
