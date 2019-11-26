@@ -13,6 +13,8 @@ import {} from 'googlemaps';
 
 
 
+import { RestaurantePlatoComponent } from '../restaurante-plato/restaurante-plato.component';
+import { RestauranteAgregarPlatoComponent } from '../restaurante-agregar-plato/restaurante-agregar-plato.component';
 
 @Component({
     selector:'app-restaurante-detail',
@@ -30,7 +32,26 @@ export class RestauranteDetailComponent{
     benefits:String[];
     esAdmi:Boolean;
     esVisitante:Boolean;
-    
+    @ViewChild(RestaurantePlatoComponent) platoListComponent: RestaurantePlatoComponent;
+
+    @ViewChild(RestauranteAgregarPlatoComponent) platoAgregarComponent: RestauranteAgregarPlatoComponent;
+
+    togglePlatos(): void 
+    {
+        if(this.platoAgregarComponent.isCollapsed == false)
+        {
+            this.platoAgregarComponent.isCollapsed = true;
+        }
+        this.platoListComponent.isCollapsed = !this.platoListComponent.isCollapsed;
+
+   }
+   toggleCreatePlato():void{
+       if(this.platoListComponent.isCollapsed == false)
+       {
+          this.platoListComponent.isCollapsed = true;
+       }
+       this.platoAgregarComponent.isCollapsed = !this.platoAgregarComponent.isCollapsed;
+   }
     constructor(
         private restauranteService: RestauranteService,
         private route: ActivatedRoute,
@@ -45,7 +66,39 @@ export class RestauranteDetailComponent{
                 this.ngOnInit();
             }
         });
-    }    
+    }
+
+    getBenefits():String[]
+    {
+        let s:String[]=[];
+        if(this.restauranteDetail.musicaEnVivo)
+        {
+            s.push("Música En Vivo");
+        }
+        if(this.restauranteDetail.petFriendly)
+        {
+            s.push("Pet Friendly");
+        }
+        if(this.restauranteDetail.servicioALaMesa)
+        {
+            s.push("Servicio a la Mesa");
+        }
+        if(this.restauranteDetail.descuentoCumpleanos)
+        {
+            s.push("Descuento De Cumpleaños");
+        }
+        if(this.restauranteDetail.zonaDeFumadores)
+        {
+            s.push("Zona Fumadore");
+        }
+        return s;
+    }
+    updatePlatos(): void{
+        this.getDetailRestaurant();
+        this.platoListComponent.updatePlatos(this.restauranteDetail.platos);
+        this.platoListComponent.isCollapsed =false;
+        this.platoAgregarComponent.isCollapsed = true;
+    }
 
     getDetailRestaurant():void{
         this.restauranteService.getRestauranteDetail(this.id)
@@ -58,7 +111,8 @@ export class RestauranteDetailComponent{
         this.id = +this.route.snapshot.paramMap.get('id');
         this.restauranteDetail = new RestauranteDetail();
         this.getDetailRestaurant();        
-       
+        this.benefits=this.getBenefits();
+
     }
     ngOnDestroy() {
         if (this.navigationSubscription) {

@@ -1,0 +1,34 @@
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <table class="table table-striped"  style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                <thead class = "thead-dark" style="background-image: linear-gradient(to top, #000000, #434343); " >
+                    <tr>
+                        
+                        <th style="color: white; font-family: 'verdana;">Fecha</th>
+                        <th style="color: white; font-family: 'verdana;">Valor</th>
+                        <th style="color: white; font-family: 'verdana;">Valor completo</th>
+                        <th style="color: white; font-family: 'verdana;">Pagada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let factura of facturas" style="cursor: pointer;" (click)="onSelected(factura)">
+                            
+                            <td style="font-family: 'Raleway', sans-serif;">{{factura.fecha}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{factura.valor}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{factura.valorCompleto}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{factura.sePago}}</td>
+              
+                        </tr>
+                    </tbody>
+               
+            </table>
+        
+        </div>
+    
+    </div>
+</div>

@@ -9,11 +9,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-
-import {AppComponent} from './app.component';
+import {TarjetaModule} from './tarjeta/tarjeta.module';
+import {AppComponent} from './app.component';   
 import {AdministradorModule} from './administrador/administrador.module';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {FacturaModule} from './factura/factura.module';
+import {TipoComidaModule} from './tipo-comida/tipo-comida.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { ReservaModule } from './reserva/reserva.module';
 import {RestauranteModule} from './Restaurante/restaurante.module';
@@ -31,7 +33,10 @@ import {RestauranteModule} from './Restaurante/restaurante.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AdministradorModule,
+        FacturaModule,
+        TipoComidaModule,
         AuthModule,
+        TarjetaModule,
         RestauranteModule,
         FormsModule,
         ToastrModule.forRoot({

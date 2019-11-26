@@ -4,7 +4,7 @@
         <br>
         <h2 class="text-center">Crear reserva</h2>
         <br>
-        <form name="reserva" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+        <form name="reserva" (ngSubmit)="f.form.valid && createReserva()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="motivo"><b>Motivo</b></label>
                 <input type="text" name="motivo" class="form-control" id="motivo" [(ngModel)]="reserva.motivo"

@@ -1,33 +1,22 @@
-<!-- <div id="alertPanel" style="text-align: center"></div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            
-            <table class="table table-striped" style="width: 90%; margin-left: 5%; margin-top: 1%; 
-               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-               background-color: white">
-                <thead class = "thead-dark" style="background-image: linear-gradient(to top, #000000, #434343); " >
-                    <tr>
-                        
-                        <th style="color: white; font-family: 'verdana;">Numero Me Gustas</th>
-                        <th style="color: white; font-family: 'verdana;">Numero No Me Gustas</th>
-                        <th style="color: white; font-family: 'verdana;">Texto </th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr *ngFor="let foodblog of foodBlogs" style="cursor: pointer;" (click)="onSelected(foodblog.id)">
-                            
-                            <td style="font-family: 'Raleway', sans-serif;">{{foodblog.numeroMeGusta}}</td>
-                            <td style="font-family: 'Raleway', sans-serif;">{{foodblog.numeroNoMeGusta}}</td>
-                            <td style="font-family: 'Raleway', sans-serif;">{{foodblog.texto}}</td>
-                           
-              
-                        </tr>
-                    </tbody>
-               
-            </table>
-        
-        </div> 
+<div class="row justify-content-around align-self-center">
+
+    <div *ngFor="let blog of foodBlogs">
+        <div class="col-sm-3  mb-4">
+            <div class="card" style="width: 18rem; height:200;">
+                <img routerLink='/blog/detail' src="{{blog.archivoMultimedia}}" style="width:286; height:163;"
+                    class="card-img-top" alt="...">
+                <div class="card-body row justify-content-around">
+
+                    <button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>
+                        {{blog.numeroMeGusta}}</button>
+                    <button class="btn btn-outline-primary"><i class="far fa-thumbs-down"></i>
+                        {{blog.numeroNoMeGusta}}</button>
+                    <div></div>
+                   
+                </div>
+            </div>
+        </div>
     </div>
-</div> -->
-<p>foodblog-detail works!</p>
+    <button routerLink='/blog/create' type="button" class="btn btn-secondary btn-lg btn-block">Crear FoodBlog</button>
+
+</div>
