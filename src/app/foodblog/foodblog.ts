@@ -1,25 +1,25 @@
 
 
 export class FoodBlog{
-
+    id:Number;
     /**
      * La descripcion del foodblog
      */
-    texto:string;
+    texto:String;
     /**
      * La foto de la comida documentada
      */
-    archivoMultimedia:string;
+    archivoMultimedia:String;
     /**
      * EL numero de me gusta que tiene esa entrada del blog
      */
-    numeroMeGusta:number;
+    numeroMeGusta:Number;
    /**
     * El numero de no me gusta que tiene la entrada
     */
-    numeroNoMeGusta:number;
+   numeroNoMegusta:Number;
     /**
      * Los comentarios que tiene el foodblog
      */
-    comentarios:string;
+    comentarios:String;
 }

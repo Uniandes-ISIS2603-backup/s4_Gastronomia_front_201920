@@ -3,14 +3,14 @@
     <div *ngFor="let blog of foodBlogs">
         <div class="col-sm-3  mb-4">
             <div class="card" style="width: 18rem; height:200;">
-                <img routerLink='/blog/detail' src="{{blog.archivoMultimedia}}" style="width:286; height:163;"
+                <img routerLink='/blog/{{blog.id}}' src="{{blog.archivoMultimedia}}" style="width:286; height:163;"
                     class="card-img-top" alt="...">
                 <div class="card-body row justify-content-around">
 
                     <button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>
                         {{blog.numeroMeGusta}}</button>
                     <button class="btn btn-outline-primary"><i class="far fa-thumbs-down"></i>
-                        {{blog.numeroNoMeGusta}}</button>
+                        {{blog.numeroNoMegusta}}</button>
                     <div></div>
                    
                 </div>

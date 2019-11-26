@@ -204,13 +204,13 @@ const routes: Routes = [
             component: FoodblogListComponent
         },
         {
-            path:'detail',
+            path:':id',
             component: FoodblogDetailComponent
 
         },
         {
-                path: 'create',
-                component: FoodblogCreateComponent
+            path: 'create',
+            component: FoodblogCreateComponent
         }
         ]
     },

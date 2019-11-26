@@ -123,7 +123,6 @@ export class RestauranteDetailComponent{
     deleteThis()
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
-    }
-    
+    }    
    
 }
