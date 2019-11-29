@@ -133,16 +133,7 @@ const routes: Routes = [
         ]
     },
     
-    /*
-    {
-        path: 'home',
-        component: HomeComponent,
-    },
-    */
-    {
-        path: '**',
-        redirectTo: 'home',
-    },
+    
     {
         path:'restaurantes',
         children:[
@@ -227,6 +218,15 @@ const routes: Routes = [
             component: TipoComidaCreateComponent
         }   
         ]
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+    },
+    
+    {
+        path: '**',
+        redirectTo: 'home',
     }
 
 ];
