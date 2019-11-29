@@ -1,0 +1,22 @@
+<div class="row justify-content-around align-self-center">
+
+    <div *ngFor="let blog of foodBlogs">
+        <div class="col-sm-3  mb-4">
+            <div class="card" style="width: 18rem; height:200;">
+                <img routerLink='/blog/{{blog.id}}' src="{{blog.archivoMultimedia}}" style="width:286; height:163;"
+                    class="card-img-top" alt="...">
+                <div class="card-body row justify-content-around">
+
+                    <button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>
+                        {{blog.numeroMeGusta}}</button>
+                    <button class="btn btn-outline-primary"><i class="far fa-thumbs-down"></i>
+                        {{blog.numeroNoMegusta}}</button>
+                    <div></div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <button routerLink='/blog/create' type="button" class="btn btn-secondary btn-lg btn-block">Crear FoodBlog</button>
+
+</div>

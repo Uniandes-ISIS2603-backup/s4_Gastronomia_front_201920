@@ -1,0 +1,56 @@
+
+
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            
+            <table class="table table-striped" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                <thead class = "thead-dark" style="background-image: linear-gradient(to top, #000000, #434343); " >
+                    <tr>
+                        
+                        <th style="color: white; font-family: 'verdana;">Nombre de usuario</th>
+                        <th style="color: white; font-family: 'verdana;"></th>
+                        <th style="color: white; font-family: 'verdana;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let administrador of administradores" style="cursor: pointer;" (click)="onSelected(administrador.id)">
+                            
+                            <td style="font-family: 'Raleway', sans-serif;">{{administrador.username}}</td>
+                            <td >
+                                    <button class="btn btn-primary" (click)="showHideEdit(administrador.id)"><span class="fa fa-pencil"></span></button>
+                                </td>
+                                <td >
+                                    <button class="btn btn-danger" (click)="deleteAdministrador(administrador.id)"><span class="fa fa-trash"></span></button>
+                                </td>
+              
+                        </tr>
+                    </tbody>
+               
+            </table>
+            <div class="row justify-content-center align-self-center" style="margin-left: 35px">
+                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                        (click)="showHideCreate()">Crear un administrador</button>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div *ngIf="showView && !showEdit">
+                        <app-administrador-detail [administradorDetail]="selectedAdministrador"></app-administrador-detail>
+                    </div>
+        
+                    <div *ngIf="showCreate">
+                            <app-administrador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-administrador-create>
+                     </div>
+                       
+                            
+                        
+             </div>
+        
+        </div>
+      
+    </div>
+

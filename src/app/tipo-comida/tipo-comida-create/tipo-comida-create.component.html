@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-6 offset-3">
+      <br>
+      <h2 class="text-center">Registrar tipo comida</h2>
+      <br>
+      <form name="registrar-tipo-comida" (ngSubmit)="f.form.valid && registrarTipoComida()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="nombre"><b>Nombre</b></label>
+                      <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="tipoComida.nombre"
+                          #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                      <div class="invalid-feedback">
+                          <div>The tipoComida's name is missing</div>
+                      </div>
+                  </div>
+        
+                  
+          <div class="justify-content-center align-self-center">
+              <button type="submit" class="btn btn-primary" (click)="createTipoComida()"> Registrar</button>
+          </div>
+      </form>
+  </div>
+</div>

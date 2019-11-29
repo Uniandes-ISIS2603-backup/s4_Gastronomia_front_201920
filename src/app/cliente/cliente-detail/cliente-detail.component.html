@@ -1,0 +1,32 @@
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3">{{clienteDetail.username}}<p> 
+        <div class="row justify-content-center align-self-center">
+            <div class="col">
+                <dl>     
+                    <dt>Nombre</dt>
+                    <dd>{{clienteDetail.nombre}}</dd>
+                    <dt>Apellido</dt>
+                    <dd>{{clienteDetail.apellido}}</dd>
+                    <dt>Email</dt>
+                    <dd>{{clienteDetail.email}}</dd>
+                    <dt>Cumpleaños</dt>
+                    <dd>{{clienteDetail.cumpleanos}}</dd>
+                    <dt>Telefóno</dt>
+                    <dd>{{clienteDetail.numeroContacto}}</dd>
+                    <dt>Puntos</dt>
+                    <dd>{{clienteDetail.puntos}}</dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+    <!-- <p class="h3 p-3">FoodBlogs de este cliente: </p>
+    <app-foodblog-list [foodBlogs]="clienteDetail.foodBlogs"></app-foodblog-list>
+    <p class="h3 p-3">Preferencias de este cliente: </p>
+    <app-tipo-comida-list [tipoComida]="clienteDetail.preferencias"></app-tipo-comida-list>
+    <p class="h3 p-3">Facturas de este cliente: </p>
+    <app-factura-list [facturas]="clienteDetail.facturas"></app-factura-list> -->
+    <p class="h3 p-3">Reservas de este cliente: </p>
+    <app-reserva-list [reservas]="clienteDetail.reservas"></app-reserva-list> 
+</div>
