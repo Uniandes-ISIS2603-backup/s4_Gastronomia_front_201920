@@ -16,37 +16,22 @@
         <br>
         <h2 class="text-center">Create Food Blog</h2>
         <br>
-        <form name="create" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="texto"><b>Nombre restaurante:</b></label>
-                <input type="text" name="texto" class="form-control" id="texto" [(ngModel)]="blog.texto"
-                    #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && texto.invalid }" required>
-                <div class="invalid-feedback">
-                    <div>Falta el nombre del restaurante</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="archivoMultimedia"><b>Ruta de la imagen</b></label>
-                <input type="text" name="archivoMultimedia" class="form-control" id="archivoMultimedia"
-                    [(ngModel)]="administrador.apellido" #archivoMultimedia="ngModel"
-                    [ngClass]="{ 'is-invalid': f.submitted && archivoMultimedia.invalid }" required>
-                <div class="invalid-feedback">
-                    <div>Falta la imagen</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="comentarios"><b>Descripcion</b></label>
-                <input type="comentarios" name="comentarios" class="form-control" id="comentarios"
-                    [(ngModel)]="administrador.username" #comentarios="ngModel"
-                    [ngClass]="{ 'is-invalid': f.submitted && comentarios.invalid }" required>
-                <div class="invalid-feedback">
-                    <div>Falta la descripcion del food blog</div>
-                </div>
-                <div class="justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary" (click)="createFoodBlog()"> Publicar</button>
-                </div>
-            </div>   
-            
-        </form>
+        <div class="row">
+            <h2>Descripción:</h2>
+        </div>
+        <div class="row">
+            <input type="text" id="texto" value={{descripcion}} (keyup)="verifyDesc()">
+        </div>
+        <div class="row">
+            <h2>Imagen:</h2>
+        </div>
+        <div class="row">
+            <input type="text" id="imagen" value={{imagen}} (keyup)="verifyImg()">
+        </div>
+        <br>
+        <div class="row">
+                <button type="submit" class="btn btn-primary" (click)=" createFoodBlog()" routerLink="/blog/list"> Crear Blog</button>
+                <button type="submit" class="btn btn-danger" (click)="cancelCreation()" routerLink="/blog/list"> Eliminar Blog</button>
+        </div>
     </div>
 </div>

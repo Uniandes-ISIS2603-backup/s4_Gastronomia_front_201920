@@ -20,21 +20,59 @@ export class FoodblogCreateComponent implements OnInit {
 
   foodBlog:FoodBlog;
 
+  descripcion:String;
+
+  imagen:String;
+
   @Output() cancel= new EventEmitter();
 
   @Output() create = new EventEmitter();
 
   createFoodBlog(): FoodBlog{
+    
+    this.foodBlog.texto=this.descripcion;
+    this.foodBlog.archivoMultimedia=this.imagen;
         this.foodBlogService.createFoodBlog(this.foodBlog).subscribe((foodBlog)=>{this.foodBlog=foodBlog
         this.create.emit();
         this.toastrService.success("Se creo el foodblog", "Creacion del foodBlog");}
       , err  => {this.toastrService.error(err,"Error");});
+      
       return this.foodBlog;
   }
-
+  cancelCreation  (): void {
+    this.cancel.emit();
+  }
   ngOnInit() 
   {
     this.foodBlog= new FoodBlog();
+    this.foodBlog.numeroMeGusta=0;
+    this.foodBlog.comentarios="";
+    this.foodBlog.numeroNoMegusta=0;
+    this.descripcion="";
+    this.imagen="";
   }
+  verifyDesc():void{
+    let x =<HTMLInputElement>document.getElementById("texto");
+    if(x.value=="" || x.value.trim()=="")
+    {      
+      x.style.backgroundColor="red";
+    }
+    else{
+      x.style.backgroundColor="green";
+      this.descripcion=x.value;
+    }
+  }
+  verifyImg():void{
+    let x =<HTMLInputElement>document.getElementById("imagen");
+    if(x.value=="")
+    {
+      
+      x.style.backgroundColor="red";
+    }
+    else{
+      x.style.backgroundColor="green";
+      this.imagen=x.value;
 
+    }
+  }
 }

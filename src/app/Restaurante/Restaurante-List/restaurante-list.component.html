@@ -1,5 +1,78 @@
-<div class="container-fluid">
+<div class="container-fluid" id="GGG">
     <div class="row">
+        <div class="col">
+            <div class="row">
+                <h2>Buscador</h2>
+            </div>
+            <div class="row">
+                <input type="text" (keyup)="getByname()" placeholder="Buscar" id="Buscador">
+            </div>
+            <div class="row">
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tipo Restaurante
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor = "let tipo of Tipos">
+                        <a class="dropdown-item" href="#" (click)="getByTipo(tipo)">{{tipo}}</a>                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="reset" (click)="ngOnInit()">Reiniciar Busqueda</button>
+            </div>
+            <div class="row">
+                <button type="submit" (click)="change()">Cambiar Buscador</button>
+            </div>
+            <div class="row">
+                <a href="#" routerLink="/restaurantes/create" class="btn btn-primary">Crear Restaurante</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <h3>Costo Reserva</h3>
+            </div>
+            <div class="row">
+                <input type="number" value="{{minReserva}}" placeholder="{{minReserva}}" (keyup)="getByOverReservaMin()" id="minReserva">
+            </div>
+            <div class="row">
+                <input type="number" value="{{minReserva}}"  placeholder="{{minReserva}}" (keyup)="getByBelowReservaMax()" id="maxReserva">
+            </div>
+            <div class="row">
+                <h3>Precio Por Persona</h3>
+            </div>
+            <div class="row">
+                <input type="number" value="{{minPrecio}}" (keyup)="getByOverPrecioMin()" id="minPrecio">
+            </div>
+            <div class="row">
+                <input type="number" value="{{minPrecio}}" (keyup)="getByBelowPrecioMax()"  id="maxPrecio">
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <h4>Descuento de Cumpleaños</h4>
+                <input type="checkbox" (click)="getByBenefits()" id="Cumpleanos">
+            </div>
+            <div class="row">
+                <h4>Zona de Fumadores</h4>
+                <input type="checkbox" (click)="getByBenefits()" id="Fumadores">
+            </div>
+            <div class="row">
+                <h4>Pet Friendly</h4>
+                <input type="checkbox" (click)="getByBenefits()" id="Pets">
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <h4>Servicio A La Mesa</h4>
+                <input type="checkbox" (click)="getByBenefits()" id="Mesa">
+            </div>
+            <div class="row">
+                <h4>Música En Vivo</h4>
+                <input type="checkbox" (click)="getByBenefits()" id="Musica"> 
+            </div>
+        </div>          
+    </div>
+    <div class="row" *ngIf="!map">
         <div class="col-md-2" *ngFor = "let restaurante of restaurantes">
             <div class="card" style="width: 18rem;">
                 <img src={{restaurante.imagen}} class="card-img-top" alt={{restaurante.nombre}}>
@@ -11,7 +84,7 @@
               </div>
         </div>
     </div>
-    <div class="row">
-        <a href="#" routerLink="/restaurantes/create" class="btn btn-primary">crear</a>
+    <div class="row" *ngIf="map">
+        <div id=map></div>
     </div>
 </div>

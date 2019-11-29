@@ -1,17 +1,19 @@
 <div class="row justify-content-around align-self-center">
-
-        <div *ngFor="let blog of blogs">
-            <div class="col-sm-3  mb-4">
-                <div class="card" style="width: 18rem; height:200;">
-                    <img routerLink='/blog/detail' src="{{blog.archivoMultimedia}}" style="width:286; height:163;"
-                        class="card-img-top" alt="...">
-                    <div class>
-                            <h3>Restaurante:{{blog.texto}}</h3>
-                            <p><strong>{{blog.comentarios}}</strong></p>
-                        <div></div>
-                       
-                    </div>
-                </div>
-            </div>
-        </div>    
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{foodBLogDetail.texto}}</h2>
+            <img src="{{foofoodBLogDetail.archivoMultimedia}}" class="card-img-top">
+        <p class="card-text">{{foofoodBLogDetail.comentarios}}</p>
+        <br>
+        <div class="row">
+            <button class="btn btn-outline-primary"><i class="far fa-thumbs-up"></i>
+                {{blog.numeroMeGusta}}</button>
+            <button class="btn btn-outline-primary"><i class="far fa-thumbs-down"></i>
+                {{blog.numeroNoMegusta}}</button>
+        </div>
+        
+        </div>
     </div>
+</div>
+
+
