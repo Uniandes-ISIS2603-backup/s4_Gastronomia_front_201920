@@ -10,10 +10,17 @@
     }
 }
 
+h4 {
+    color: black;
+}
 .responsive {
     width: 100%;
     height: auto;
   }
+  .colores {
+   background-color: #E0E0E0 ;
+  }
+
 .overlay {
     position:absolute;
     top:0;
