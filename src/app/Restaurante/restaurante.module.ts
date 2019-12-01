@@ -15,12 +15,14 @@ import {RestauranteAgregarPlatoComponent} from './restaurante-agregar-plato/rest
 import{RestauranteEditarPlatoComponent} from './restaurante-editar-plato/restaurante-editar-plato.component'
 import { FilterPipe }from './filter.pipe';
 
+
 import{AdministradorModule} from '../administrador/administrador.module';
 
 import {RestauranteService} from './Restaurante.service';
 import { Restaurante } from './Restaurante';
 import { RestaurantePlatoComponent } from './restaurante-plato/restaurante-plato.component';
 import { RestauranteEditComponent } from './Restaurante-edit/restaurante-edit.component';
+import { ReservaModule } from '../reserva/reserva.module';
 
 @NgModule({
     imports:[BrowserModule,
@@ -31,6 +33,7 @@ import { RestauranteEditComponent } from './Restaurante-edit/restaurante-edit.co
         NgbModule,
         AdministradorModule,
         ReactiveFormsModule,
+        ReservaModule,
         NgxPermissionsModule],
         declarations:[RestauranteListComponent,RestauranteCreateComponent,RestauranteDetailComponent,RestauranteAgregarPlatoComponent,RestaurantePlatoComponent, RestauranteEditComponent,RestauranteEditarPlatoComponent,FilterPipe ],
         providers:[RestauranteService],

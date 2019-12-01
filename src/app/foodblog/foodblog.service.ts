@@ -8,7 +8,7 @@ import {FoodBlogDetail} from './foodblog-detail';
 import{ environment} from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const foodblogs = '/foodblogs';
+const foodblogs = '/foodBlogs';
 
 @Injectable()
 export class FoodBlogService
