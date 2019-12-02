@@ -7,8 +7,7 @@ import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restaurante-editar-plato.component';
 
-const coursesTbody: HTMLElement = document.getElementById('platosTabla');
-const inputSearchBox: HTMLElement = document.getElementById("search-box");
+
 
 @Component({
     selector:'app-restaurante-plato',
@@ -33,7 +32,7 @@ const inputSearchBox: HTMLElement = document.getElementById("search-box");
 
     @Input() restaurante: Restaurante;
 
-    restauranteFiltro: Plato[];
+  
 
     public isCollapsed = false;
 
@@ -71,24 +70,13 @@ const inputSearchBox: HTMLElement = document.getElementById("search-box");
         ]
     }); 
     }
-    
-    buscarPorNombre()
-    {
-      let text = inputSearchBox["value"];
-      clearCoursesInTable();
-    }
+
 
    
       
     ngOnInit() {
-      this.restaurantePlatos = this.restauranteFiltro;
+
 
     }
   
-  }
-
-  function clearCoursesInTable() {
-    while (coursesTbody.hasChildNodes()) {
-      coursesTbody.removeChild(coursesTbody.lastChild);
-    }
   }
