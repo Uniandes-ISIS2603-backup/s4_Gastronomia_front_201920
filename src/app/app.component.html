@@ -14,41 +14,35 @@
             <li class="nav-item">
               <a class="nav-link" href="#" routerLink="/restaurantes/list">Nuestros restaurantes</a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="#">Eventos especiales </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/blog/list">Blog</a>
-              </li>
-    
-              <li class="nav-item dropdown" *ngxPermissionsOnly="['ADMIN']">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admin
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
-                    <a class="dropdown-item" href="#" routerLink = "/clientes/list">Listar Clientes</a>
-                  </div>
-              </li>
-    
-              
-            
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/blog/list">Blog</a>
+            </li>
+            <li class="nav-item dropdown" *ngxPermissionsOnly="['ADMIN']">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
+                  <a class="dropdown-item" href="#" routerLink = "/clientes/list">Listar Clientes</a>
+                </div>
+            </li>  
           </ul>
           
-          <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle mr-3 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       ¿Tienes un restaurante?
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#" routerLink = "/administrador/login" >Ingresar</a>
-                  <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
+          <div *ngxPermissionsOnly="['GUEST']">
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle mr-3 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          ¿Tienes un restaurante?
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
+                  </div>
                 </div>
-              </div>
-    
-    
-          <button type="button" class="btn btn-outline-dark mr-3">Inicia sesion</button>
-          <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Hazte una cuenta</button>
-          
+                <button type="button" class="btn btn-outline-dark mr-3" routerLink = "/auth/login">Inicia sesión</button>
+                <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Crear cuenta</button>
+          </div>
+        </div>
+        <div *ngxPermissionsOnly="['ADMIN', 'RESTAURANT', 'CLIENT']">
+            <button type="button" class="btn btn-outline-dark mr-3" (click)=logout()>Cerrar sesión</button>
         </div>
       </nav>
    

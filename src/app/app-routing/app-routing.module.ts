@@ -229,13 +229,7 @@ const routes: Routes = [
                         only: ['ADMIN']
                     }
                 }
-        },
-        {
-            path: 'login',
-            component: AuthLoginComponent
-        }
-       
-            
+        },  
         ]
     },
 
