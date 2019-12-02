@@ -26,6 +26,8 @@ export class AuthService {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
+        } else if (role === 'RESTAURANT') {
+            this.setRestaurantRole();
         } else {
             this.setClientRole();
         }
@@ -36,16 +38,22 @@ export class AuthService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
-    }
-
     setAdministratorRole (): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
         localStorage.setItem('role', 'ADMIN');
+    }
+
+    setRestaurantRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('RESTAURANT', ['edit_author_permission', 'delete_author_permission']);
+        localStorage.setItem('role', 'RESTAURANT');
+    }
+
+    setClientRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('CLIENT', ['leave_review']);
+        localStorage.setItem('role', 'CLIENT');
     }
 
     printRole (): void {
@@ -59,8 +67,10 @@ export class AuthService {
     login (role): void {
         if (role === 'Administrator') {
             this.setAdministratorRole();
+        } else if (role === 'Restaurant administrator') {
+            this.setRestaurantRole();
         } else {
-            this.setClientRole()
+            this.setClientRole();
         }
         this.router.navigateByUrl('/');
     }
