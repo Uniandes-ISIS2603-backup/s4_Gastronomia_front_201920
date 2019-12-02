@@ -36,6 +36,7 @@ export class ClienteAgregarTarjetaComponent implements OnInit, OnChanges {
  */
 @Output() cancel = new EventEmitter();
 
+
 /**
 * The output which tells the parent component
 * that the user created a new reservation
@@ -47,7 +48,6 @@ export class ClienteAgregarTarjetaComponent implements OnInit, OnChanges {
     let dateB: Date = new Date(this.tarjeta.fechaVencimiento.year, this.tarjeta.fechaVencimiento.month - 1, this.tarjeta.fechaVencimiento.day);
 
     this.tarjeta.fechaVencimiento = this.dp.transform(dateB, "yyyy-MM-dd'T'HH:mm:ss'Z[UTC]'");
-    console.log(this.tarjeta.fechaVencimiento);
     this.tarjeta.cliente = this.cliente;
     this.clienteService.createTarjeta(this.cliente.id, this.tarjeta).subscribe(() =>
     
@@ -55,6 +55,7 @@ export class ClienteAgregarTarjetaComponent implements OnInit, OnChanges {
       
       f.reset();
       this.updateTarjetas.emit();
+      this.create.emit();
       this.toastrService.success("Se registro la tarjeta existosamente");
     }, err => 
     {
