@@ -1,10 +1,10 @@
-<div class="row" id="collapseAgregarPlato" [ngbCollapse]="isCollapsed">
+<div class="row" id="collapseEditarPlato" [ngbCollapse]="isCollapsed">
         <div class="col-3"></div>
         <div class="col-6">
             <br>
-            <h2 class="text-center">Añadir tarjeta</h2>
+            <h2 class="text-center">Actualizar tarjeta</h2>
             <br>
-            <form name="reserva" (ngSubmit)="f.form.valid && crearTarjeta(f)" #f="ngForm" novalidate>
+            <form name="reserva" (ngSubmit)="f.form.valid && updateTarjeta(f)" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="numero"><b>Número</b></label>
                     <input type="text" name="numero" class="form-control" id="numero" [(ngModel)]="tarjeta.numero"
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                     <div class="divider"></div>
                     <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
                 </div>

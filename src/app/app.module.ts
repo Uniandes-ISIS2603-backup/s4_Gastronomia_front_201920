@@ -20,6 +20,7 @@ import { ClienteModule } from './cliente/cliente.module';
 import { ReservaModule } from './reserva/reserva.module';
 import {RestauranteModule} from './Restaurante/restaurante.module';
 import {ResenaModule} from './resena/resena.module';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {ResenaModule} from './resena/resena.module';
         TarjetaModule,
         ResenaModule,
         RestauranteModule,
+        HomeModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

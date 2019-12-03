@@ -1,0 +1,55 @@
+<div id="collapseEditarPlato" [ngbCollapse]="isCollapsed">
+    <div class="container-fluid">
+        <h3>Editar un plato</h3>
+        <form name="post" (ngSubmit)="platoForm.form.valid && updatePlato(platoForm)" #platoForm="ngForm" novalidate>
+              <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="platoNombre"><b>Nombre</b></label>
+                        <input type="text" name="platoNombre" class="form-control" id="platoNombre" [(ngModel)]="plato.nombre"
+                               #platoNombre="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoNombre.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>El nombre del plato es requerido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="platoPrecio"><b>Precio</b></label>
+                        <input type="text" name="platoPrecio" class="form-control" id="platoPrecio" [(ngModel)]="plato.precio"
+                               #platoPrecio="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoPrecio.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>El precio del  plato es requerido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="platoDescripcion"><b>Descripcion</b></label>
+                        <input type = "text" name="platoDescripcion" class="form-control" id="platoDescripcion" [(ngModel)]="plato.descripcion"
+                                  #platoDescripcion="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoDescripcion.invalid }"
+                                  required>
+                        <div class="invalid-feedback">
+                            <div>La descripcion es requerida</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                        <div class="form-group">
+                            <label for="platoImagen"><b>Imagen</b></label>
+                            <input type = "text" name="platoImagen" class="form-control" id="platoImagen" [(ngModel)]="plato.rutaImagen"
+                                      #platoImagen="ngModel" [ngClass]="{ 'is-invalid': platoForm.submitted && platoImagen.invalid }"
+                                      required>
+                            <div class="invalid-feedback">
+                                <div>La imagen es requerida</div>
+                            </div>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Actualizar Plato</button>
+            </div>
+        </form>
+    </div>
+</div>>

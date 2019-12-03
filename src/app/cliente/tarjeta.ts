@@ -7,7 +7,7 @@ numero: number;
 
 cvv: number;
 
-fecha: any;
+fechaVencimiento: any;
 
 cliente: Cliente;
 

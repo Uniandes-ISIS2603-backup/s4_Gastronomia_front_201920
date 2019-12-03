@@ -1,23 +1,32 @@
 <div id="collapsePlato" [ngbCollapse]="isCollapsed">
-    <table class="table table-striped">
-            <thead class="thead-dark">
+    <br>
+        <div class="col">
+                <input  type="text" class="form-control" [(ngModel)]="searchText" placeholder="Buscar por nombre">
+            </div>
+            <br>
+    <table class="table table-striped" id="platosTabla"> 
+            <thead class="thead-dark">  
                     <tr>
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Descripcion</th>
                         <th>Imagen</th>
                         <th></th>
+                        <th></th>
 
                     </tr>
                 </thead>
         <tbody>
-            <tr *ngFor="let plato of restaurantePlatos">
+                <tr *ngFor="let plato of restaurantePlatos | filter : searchText">
                 <td><span id="restaurante-plato"><b>{{plato.nombre}}</b></span></td>
                 <td>{{plato.precio}}</td>
                 <td>{{plato.descripcion}}</td>
                 <td><img src = {{plato.rutaImagen}} class= "img-fluid" alt="..."></td>
+                <td ><button class="btn btn-primary" (click) = editar(plato)><span class="fa fa-pencil"></span></button></td>
+                
                 <td><button class="btn btn-danger text-center" (click)="deletePlato(plato.id)"><span class="fa fa-trash"></span></button></td>
             </tr>
         </tbody>
     </table>
+    <app-restaurante-editar-plato  [restaurante2] = "restaurante"></app-restaurante-editar-plato>
 </div>

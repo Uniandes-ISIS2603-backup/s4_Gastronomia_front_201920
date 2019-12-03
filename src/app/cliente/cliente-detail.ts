@@ -1,4 +1,5 @@
 import { Cliente } from './cliente';
+import { Tarjeta} from './tarjeta';
 
 /**
 * This class represents an client of FoodDive. 
@@ -10,6 +11,7 @@ export class ClienteDetail extends Cliente {
     //preferencias: TipoComida[],
     //facturas: Factura[],
     //reservas: Reserva[],
+    tarjetas: Tarjeta[];
 
 
 }

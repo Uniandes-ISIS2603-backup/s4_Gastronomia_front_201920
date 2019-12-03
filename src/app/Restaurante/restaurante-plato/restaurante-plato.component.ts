@@ -1,10 +1,14 @@
-import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input, ViewChild, ViewContainerRef} from '@angular/core';
 import { Plato } from '../plato';
 import {RestauranteService} from '../Restaurante.service';
 import { Restaurante } from '../Restaurante';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restaurante-editar-plato.component';
+
+
+
 @Component({
     selector:'app-restaurante-plato',
     templateUrl: './restaurante-plato.component.html',
@@ -22,11 +26,21 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
     }
 
 
-
+    @ViewChild(RestauranteEditarPlatoComponent) platoEditarComponent: RestauranteEditarPlatoComponent;
     
     @Input() restaurantePlatos: Plato[];
 
     @Input() restaurante: Restaurante;
+
+  
+
+    public isCollapsed = false;
+
+    editar(plato)
+    {
+      this.platoEditarComponent.plato.id = plato.id;
+      this.platoEditarComponent.isCollapsed =  !this.platoEditarComponent.isCollapsed;
+    }
 
     updatePlatos(platos: Plato[]):void{
         this.restaurantePlatos = platos;
@@ -56,9 +70,12 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
         ]
     }); 
     }
-    public isCollapsed = false;
+
+
+   
       
     ngOnInit() {
+
 
     }
   

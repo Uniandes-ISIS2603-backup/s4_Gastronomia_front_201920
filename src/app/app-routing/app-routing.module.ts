@@ -29,6 +29,7 @@ import {ResenaListComponent} from '../resena/resena-list/resena-list.component';
 import {ResenaCreateComponent} from '../resena/resena-create/resena-create.component';
 
 
+import { HomeComponent } from '../home/home/home.component';
 
 const routes: Routes = [
     {
@@ -73,6 +74,7 @@ const routes: Routes = [
             }
         ]
     },
+   
     {
         path: 'clientes',
         children: [
@@ -136,15 +138,6 @@ const routes: Routes = [
     },
     
     
-    /*{
-        path: 'home',
-        component: AuthLoginComponent
-    },
-    */
-    {
-        path: '**',
-        redirectTo: 'home',
-    },
     {
         path:'restaurantes',
         children:[
@@ -242,6 +235,15 @@ const routes: Routes = [
             component: TipoComidaCreateComponent
         }   
         ]
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+    },
+    
+    {
+        path: '**',
+        redirectTo: 'home',
     }
 
 ];
