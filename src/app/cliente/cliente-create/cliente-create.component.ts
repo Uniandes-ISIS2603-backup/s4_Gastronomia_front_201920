@@ -42,7 +42,8 @@ export class ClienteCreateComponent implements OnInit {
     let dateB: Date = new Date(this.cliente.cumpleanos.year, this.cliente.cumpleanos.month - 1, this.cliente.cumpleanos.day);
 
     this.cliente.cumpleanos = this.dp.transform(dateB, "yyyy-MM-dd'T'HH:mm:ss'Z[UTC]'");
-    console.log(this.cliente.cumpleanos);
+    this.cliente.puntos = 0;
+    console.log(this.cliente);
     this.clienteService.createCliente(this.cliente)
         .subscribe((cliente) => {
             this.cliente = cliente;
