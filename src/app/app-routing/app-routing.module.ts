@@ -25,6 +25,8 @@ import { RestauranteDetailComponent } from '../Restaurante/Restaurante-detail/Re
 import { FoodblogDetailComponent } from '../foodblog/foodblog-detail/foodblog-detail.component';
 import { FoodblogListComponent } from '../foodblog/foodblog-list/foodblog-list.component';
 import { FoodblogCreateComponent } from '../foodblog/foodblog-create/foodblog-create.component';
+import {ResenaListComponent} from '../resena/resena-list/resena-list.component';
+import {ResenaCreateComponent} from '../resena/resena-create/resena-create.component';
 
 
 
@@ -199,19 +201,32 @@ const routes: Routes = [
     {
         path: 'blog',
         children: [
-        {        
-            path: 'list',
-            component: FoodblogListComponent
-        },
-        {
-            path:':id',
-            component: FoodblogDetailComponent
-
-        },
-        {
-            path: 'create',
-            component: FoodblogCreateComponent
-        }
+            {        
+                path: 'list',
+                component: FoodblogListComponent
+            },           
+            {
+                path: 'create',
+                component: FoodblogCreateComponent
+            },
+            {
+                path:':id',
+                component: FoodblogDetailComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
+    },
+    {
+        path: 'resena',
+        children:[
+            {
+                path: 'list',
+                component : ResenaListComponent
+            },
+            {
+                path: 'create',
+                component: ResenaCreateComponent
+            }
         ]
     },
     {

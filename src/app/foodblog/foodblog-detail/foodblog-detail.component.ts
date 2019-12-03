@@ -34,4 +34,6 @@ export class FoodblogDetailComponent implements OnInit {
     this.getFoodBlogDetail();
   }
 
+  
+
 }
