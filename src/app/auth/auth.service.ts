@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
+import { ClienteService } from '../cliente/cliente.service';
 
 /**
  * The service provider for everything related to authentication
@@ -15,7 +16,12 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor (
+        private router: Router,
+        private roleService: NgxRolesService,
+        private permissionsService: NgxPermissionsService,
+        private clienteService: ClienteService,
+    ) { }
 
     start (): void {
         localStorage.removeItem('role');
@@ -65,13 +71,17 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
+    login (role, username) {
         if (role === 'Administrator') {
             this.setAdministratorRole();
         } else if (role === 'Restaurant administrator') {
             this.setRestaurantRole();
         } else {
             this.setClientRole();
+            this.clienteService.getClienteDetailByUsername(username).subscribe(clienteDetail => {
+                localStorage.setItem('userId', clienteDetail.id.toString());
+            });
+            console.log(localStorage.getItem('userId'));  
         }
         this.router.navigateByUrl('/');
     }
@@ -83,6 +93,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('userId');
         this.router.navigateByUrl('/');
     }
 }

@@ -31,8 +31,7 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        console.log(this.user.role)
-        this.authService.login(this.user.role);
+        this.authService.login(this.user.role, this.user.name);
         this.toastrService.success('Logged in')
     }
 

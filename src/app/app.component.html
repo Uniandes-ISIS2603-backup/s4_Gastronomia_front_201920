@@ -28,21 +28,23 @@
             </li>  
           </ul>
           
-          <div *ngxPermissionsOnly="['GUEST']">
-              <div class="dropdown">
+              <div class="dropdown" *ngxPermissionsOnly="['GUEST']">
                   <button class="btn btn-secondary dropdown-toggle mr-3 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           ¿Tienes un restaurante?
                   </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
-                  </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
                 </div>
-                <button type="button" class="btn btn-outline-dark mr-3" routerLink = "/auth/login">Inicia sesión</button>
-                <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Crear cuenta</button>
+              </div>
+            <div *ngxPermissionsOnly="['GUEST']">
+              <button type="button" class="btn btn-outline-dark mr-3" routerLink = "/auth/login">Inicia sesión</button>
+              <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Crear cuenta</button>
+            </div>
+          
+          <div *ngxPermissionsOnly="['ADMIN', 'RESTAURANT', 'CLIENT']">
+              <button type="button" class="btn btn-outline-dark mr-3" (click)=getUserInformation()>Mi cuenta</button>
+              <button type="button" class="btn btn-outline-dark mr-3" (click)=logout()>Cerrar sesión</button>
           </div>
-        </div>
-        <div *ngxPermissionsOnly="['ADMIN', 'RESTAURANT', 'CLIENT']">
-            <button type="button" class="btn btn-outline-dark mr-3" (click)=logout()>Cerrar sesión</button>
         </div>
       </nav>
    
