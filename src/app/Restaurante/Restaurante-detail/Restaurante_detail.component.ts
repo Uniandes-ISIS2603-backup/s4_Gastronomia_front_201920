@@ -7,6 +7,12 @@ import {Restaurante} from '../Restaurante';
 import { RestauranteDetail } from '../Restaurante-Detail';
 import { Administrador } from '../../administrador/administrador';
 import { s } from '@angular/core/src/render3';
+import { Plato } from '../plato';
+import { Reserva } from '../../reserva/reserva';
+import {} from 'googlemaps';
+
+
+
 import { RestaurantePlatoComponent } from '../restaurante-plato/restaurante-plato.component';
 import { RestauranteAgregarPlatoComponent } from '../restaurante-agregar-plato/restaurante-agregar-plato.component';
 
@@ -19,8 +25,8 @@ import { RestauranteAgregarPlatoComponent } from '../restaurante-agregar-plato/r
 export class RestauranteDetailComponent{
     restauranteDetail:RestauranteDetail;
     id:number;
-    //platos:Plato[]
-    //reservas:Reserva[]
+    platos:Plato[]
+    reservas:Reserva[]
     navigationSubscription;
     administrador:Administrador;
     benefits:String[];
@@ -113,4 +119,10 @@ export class RestauranteDetailComponent{
             this.navigationSubscription.unsubscribe();
         }
     }
+
+    deleteThis()
+    {
+        this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
+    }    
+   
 }

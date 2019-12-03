@@ -25,8 +25,7 @@ import { RestauranteDetailComponent } from '../Restaurante/Restaurante-detail/Re
 import { FoodblogDetailComponent } from '../foodblog/foodblog-detail/foodblog-detail.component';
 import { FoodblogListComponent } from '../foodblog/foodblog-list/foodblog-list.component';
 import { FoodblogCreateComponent } from '../foodblog/foodblog-create/foodblog-create.component';
-
-
+import { HomeComponent } from '../home/home/home.component';
 
 const routes: Routes = [
     {
@@ -71,6 +70,7 @@ const routes: Routes = [
             }
         ]
     },
+   
     {
         path: 'clientes',
         children: [
@@ -134,15 +134,6 @@ const routes: Routes = [
     },
     
     
-    /*{
-        path: 'home',
-        component: AuthLoginComponent
-    },
-    */
-    {
-        path: '**',
-        redirectTo: 'home',
-    },
     {
         path:'restaurantes',
         children:[
@@ -204,13 +195,13 @@ const routes: Routes = [
             component: FoodblogListComponent
         },
         {
-            path:'detail',
+            path:':id',
             component: FoodblogDetailComponent
 
         },
         {
-                path: 'create',
-                component: FoodblogCreateComponent
+            path: 'create',
+            component: FoodblogCreateComponent
         }
         ]
     },
@@ -227,6 +218,15 @@ const routes: Routes = [
             component: TipoComidaCreateComponent
         }   
         ]
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+    },
+    
+    {
+        path: '**',
+        redirectTo: 'home',
     }
 
 ];

@@ -1,9 +1,21 @@
 <div id="collapseTarjeta" [ngbCollapse]="isCollapsed">
     <table class="table table-striped">
+        <thead class = "thead-dark">
+        <th>Número</th>
+        <th>Fecha</th>
+        <th></th>
+        <th></th>
+        </thead>
+        
         <tbody>
             <tr *ngFor="let tarjeta of clienteTarjetas">
-                <td><span id="cliente-tarjeta"><b>{{tarjeta.numero}}</b></span></td>
+                <td>{{tarjeta.numero}}</td>
+                <td>{{tarjeta.fechaVencimiento}}</td>
+                <td ><button class="btn btn-primary" (click) = editar(tarjeta)><span class="fa fa-pencil"></span></button></td>
+                
+                <td><button class="btn btn-danger text-center" (click)="deleteTarjeta(tarjeta)"><span class="fa fa-trash"></span></button></td>
             </tr>
         </tbody>
     </table>
 </div>
+<app-cliente-editar-tarjeta [cliente2] = "cliente"></app-cliente-editar-tarjeta>

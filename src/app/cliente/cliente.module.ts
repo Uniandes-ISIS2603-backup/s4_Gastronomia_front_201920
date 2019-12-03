@@ -14,6 +14,7 @@ import { ClienteDetailComponent } from './cliente-detail/cliente-detail.componen
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
 import { ClienteTarjetaComponent} from './cliente-tarjeta/cliente-tarjeta.component';
 import { ClienteAgregarTarjetaComponent } from './cliente-agregar-tarjeta/cliente-agregar-tarjeta.component';
+import {ClienteEditarTarjetaComponent} from './cliente-editar-tarjeta/cliente-editar-tarjeta.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ClienteAgregarTarjetaComponent } from './cliente-agregar-tarjeta/client
                  ClienteDetailComponent,
                  ClienteCreateComponent,
                  ClienteTarjetaComponent,
-                 ClienteAgregarTarjetaComponent],
+                 ClienteAgregarTarjetaComponent,
+                 ClienteEditarTarjetaComponent],
   providers: [ClienteService],
   exports: [ClienteListComponent,
             ClienteDetailComponent,

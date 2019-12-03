@@ -1,43 +1,44 @@
-<div id="collapseAgregarTarjeta" [ngbCollapse]="isCollapsed">
-    <div class="container-fluid">
-        <h3>Add a review</h3>
-        <form name="post" (ngSubmit)="tarjetaForm.form.valid && crearTarjeta(tarjetaForm)" #tarjetaForm="ngForm" novalidate>
-              <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="tarjetaNumero"><b>Numero</b></label>
-                        <input type="text" name="tarjetaNumero" class="form-control" id="tarjetaNumero" [(ngModel)]="tarjeta.numero"
-                               #tarjetaNumero="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && tarjetaNumero.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>El numero de la tarjeta es requerido</div>
-                        </div>
+<div class="row" id="collapseAgregarPlato" [ngbCollapse]="isCollapsed">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <br>
+            <h2 class="text-center">Añadir tarjeta</h2>
+            <br>
+            <form name="reserva" (ngSubmit)="f.form.valid && crearTarjeta(f)" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="numero"><b>Número</b></label>
+                    <input type="text" name="numero" class="form-control" id="numero" [(ngModel)]="tarjeta.numero"
+                        #numero="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numero.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El numero es requerido</div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="tarjetaCvv"><b>Cvv</b></label>
-                        <input type="text" name="tarjetaCvv" class="form-control" id="tarjetaCvv" [(ngModel)]="tarjeta.cvv"
-                               #tarjetaCvv="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && tarjetaCvv.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>El cvv es requerido</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="tarjetaFecha"><b>Fecha</b></label>
-                        <input type = "text" name="tarjetaFecha" class="form-control" id="tarjetaFecha" [(ngModel)]="tarjeta.fecha"
-                                  #tarjetaFecha="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && tarjetaFecha.invalid }"
-                                  required>
+                <div class="form-group">
+                    <label for="fecha"><b>Fecha</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && fecha.invalid }">
+                        <input class="form-control" id="fecha" name="fecha" [(ngModel)]="tarjeta.fechaVencimiento"
+                            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fecha="ngModel" [ngClass]="{'is-invalid': f.submitted && (fecha.untouched || fecha.invalid) }"
+                            required>
                         <div class="invalid-feedback">
                             <div>La fecha es requerida</div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Post review</button>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="cvv"><b>Cvv</b></label>
+                    <input type="text" name="cvv" class="form-control" id="cvv" [(ngModel)]="tarjeta.cvv"
+                        #cvv="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cvv.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El cvv es requerido</div>
+                    </div>
+                </div>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
     </div>
-</div>
+    

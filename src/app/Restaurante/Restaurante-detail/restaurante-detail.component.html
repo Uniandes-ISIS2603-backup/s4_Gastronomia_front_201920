@@ -3,6 +3,8 @@
     <meta charset="utf-8">    
   </head>
   <body>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEu6l1slQbzdF4bQZCxZMXuQg9Ez1vn7I&callback=initMap"
+      async defer></script>
     <div class="container-fluid">      
       <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0" id="img">
@@ -16,9 +18,10 @@
           </div>          
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-2">        
       <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          
           <div class="col p-4 d-flex flex-column position-static">
             <h3 class="mb-0">Nuestros Platos</h3>
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoListComponent.isCollapsed,'btn-outline-primary':!platoListComponent.isCollapsed}" (click)="togglePlatos()">
@@ -27,7 +30,7 @@
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': platoAgregarComponent.isCollapsed,'btn-outline-primary':!platoAgregarComponent.isCollapsed}" (click)="toggleCreatePlato()">
               Crear un plato
   </button>
-          <app-restaurante-plato [restaurantePlatos] = "restauranteDetail.platos"></app-restaurante-plato> 
+          <app-restaurante-plato [restaurantePlatos] = "restauranteDetail.platos" [restaurante] = "restauranteDetail"></app-restaurante-plato> 
           <app-restaurante-agregar-plato [restaurante] = "restauranteDetail" (updatePlatos) = "updatePlatos()"></app-restaurante-agregar-plato>  
 
           </div>          
@@ -44,18 +47,87 @@
                   <th></th>                                 
                 </tr>
               </thead>
-              <tbody *ngFor="let s of benefits">
+              <tbody>
                   <tr>
                       <td>
-                          {{s}}
+                          Descuento Cumpleaños
                       </td>
                       <td>
-                          X
+                          {{restauranteDetail.descuentoCumpleanos}}
                       </td>
                   </tr>
+                  <tr>
+                      <td>
+                          Zona De Fumadores
+                      </td>
+                      <td>
+                          {{restauranteDetail.zonaDeFumadores}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Pet Friendly
+                      </td>
+                      <td>
+                          {{restauranteDetail.petFriendly}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Servicio A La Mesa
+                      </td>
+                      <td>
+                          {{restauranteDetail.servicioALaMesa}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          Música En Vivo
+                      </td>
+                      <td>
+                          {{restauranteDetail.musicaEnVivo}}
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <a href="#" class="btn btn-primary">Modificar</a>
+                      </td>
+                      <td>
+                          <a href="#" class="btn btn-danger" (click)="deleteThis()" routerLink="/restaurantes/list">Eliminar</a>
+                      </td>
+                    </tr>
               </tbody>
             </table>   
-          </div>          
+          </div>       
+          <div class="row">
+            <div id="map"></div>
+              <script async defer src='http://maps.googleapis.com/maps/api/js?key=AIzaSyCEu6l1slQbzdF4bQZCxZMXuQg9Ez1vn7I&callback=initMap'>
+                let map;
+                let markerInicial;
+                let markerFinal;
+                let coordinates;
+                let path;
+                let triangle;
+                let directionsService;
+                let directionsRenderer;
+                let markers = [];
+                let geocoder;
+                function initMap()
+                {
+                  map = new google.maps.Map(document.getElementById('map'),{
+                      center:{lat:4.66421, lng: -74.07861}, // 
+                      zoom:16
+                    });
+                  directionsService = new google.maps.DirectionsService();
+                  directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers:true});
+                  geocoder = new google.maps.Geocoder();
+                }
+              </script>
+              <script>
+                x=document.getElementById("map")
+                x.innerHTML="<h1>F</h1>"
+              </script>
+          </div>
         </div>
       </div>
     </div>

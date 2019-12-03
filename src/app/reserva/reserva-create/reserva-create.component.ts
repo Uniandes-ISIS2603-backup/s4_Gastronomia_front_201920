@@ -46,7 +46,7 @@ export class ReservaCreateComponent implements OnInit {
     console.log(this.reserva);
     this.reservaService.createReserva(this.reserva)
         .subscribe((reserva) => {
-            this.reserva = reserva;
+            this.reserva = reserva; 
             this.create.emit();
             this.toastrService.success("The reservation was created", "Reservation creation");
 

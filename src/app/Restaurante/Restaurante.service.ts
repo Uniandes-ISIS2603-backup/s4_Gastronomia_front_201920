@@ -42,4 +42,12 @@ export class RestauranteService
     {
      return this.http.post<Plato>(API_URL + restaurantes + '/' + restauranteId + platos, plato);
     }
+    updatePlato(restauranteId, plato): Observable<Plato>
+    {
+        return this.http.put<Plato>(API_URL + restaurantes + '/' + restauranteId + platos + '/' +  plato.id, plato);
+    }
+    deletePlato(restauranteId, platoId)
+    {
+        return this.http.delete<RestauranteDetail>(API_URL + restaurantes + '/' + restauranteId + platos + '/' + platoId);
+    }
 }

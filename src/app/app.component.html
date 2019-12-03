@@ -37,8 +37,30 @@
           </li>
 
         
-      
-    </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" routerLink ='/home' >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/restaurantes/list">Nuestros restaurantes</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Eventos especiales </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="/blog/list">Blog</a>
+              </li>
+    
+              <li class="nav-item dropdown"  >
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
+                    <a class="dropdown-item" href="#" routerLink = "/clientes/list">Listar Clientes</a>
+                  </div>
+                </li>
     
     <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle mr-3 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,21 +73,8 @@
             <a class="dropdown-item" href="#" routerLink = "/tipoComida/create">Crear tipo comida</a>
           </div>
         </div>
-
-
-    <button type="button" class="btn btn-outline-dark mr-3">Inicia sesion</button>
-    <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Hazte una cuenta</button>
-    
+      </nav>
+   
+  <div>
+      <router-outlet></router-outlet>  
   </div>
-</nav>
-<section class="hero">
-<div class="hero-inner">
-    <h1>No te quedes sin mesa</h1>
-    <h2>Reserva y encuentra tu restaurante favorito en minutos!</h2>
-  
-</div>
-</section>
-
-<div>
-<router-outlet></router-outlet>  
-</div>

@@ -22,7 +22,7 @@ export class FoodblogListComponent implements OnInit {
   /**
    * Arreglo de los foodblogs que se van a desplegar
    */
-foodBlogs: FoodBlog[] ;
+  foodBlogs: FoodBlog[]; 
 
 /**
     * Shows or hides the create component
@@ -44,7 +44,8 @@ foodBlogs: FoodBlog[] ;
     */
     getFoodBlogs(): void {
       this.foodBlogService.getFoodBLogs()
-      .subscribe(foodBlogs => {this.foodBlogs =this.foodBlogs});
+      .subscribe(foodBlogs => {this.foodBlogs =foodBlogs});
+      
     }
 
     // getFoodBlogDetail():
@@ -54,7 +55,7 @@ foodBlogs: FoodBlog[] ;
     */
    showHideCreate(): void {
     this.showEdit = false;
-    this.showCreate = !this.showCreate!
+    this.showCreate = !this.showCreate;
     }
 
      /**
@@ -83,7 +84,7 @@ foodBlogs: FoodBlog[] ;
       this.showCreate = false;
           this.showEdit = false;
           this.getFoodBlogs();
-          console.log("BAbato");
+         
   }
 
 }

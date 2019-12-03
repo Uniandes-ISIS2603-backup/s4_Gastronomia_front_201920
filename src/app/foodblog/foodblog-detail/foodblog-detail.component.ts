@@ -23,12 +23,7 @@ export class FoodblogDetailComponent implements OnInit {
 
   foodblog_id:number;
 
-  blogs: FoodBlog[];
-
-  getFoodBlogs(): void {
-    this.foodBlogService.getFoodBLogs()
-    .subscribe(blogs => {this.blogs =this.blogs});
-  }
+  
 
   getFoodBlogDetail():void{
     this.foodBlogService.getFoodBlogDetail(this.foodblog_id).subscribe(foodBLogDetail => {this.foodBLogDetail=foodBLogDetail});
