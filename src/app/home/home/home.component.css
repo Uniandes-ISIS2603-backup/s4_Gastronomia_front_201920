@@ -23,6 +23,26 @@ h4 {
     color: black;
 }
 
+.tituloFood
+{
+    font-size: 80px;
+    font-family: 'Candal', sans-serif;
+    color: white;
+    box-shadow: black;
+    text-align: center;
+}
+
+.letrica
+{
+    font-size: 40px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.letrota
+{
+    font-family: 'Raleway', sans-serif;
+}
+
 h1 {
     
     font-family: 'Roboto', sans-serif;
