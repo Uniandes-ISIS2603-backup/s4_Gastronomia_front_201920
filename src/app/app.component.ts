@@ -34,7 +34,19 @@ export class AppComponent implements OnInit {
     ) { }
 
     getUserInformation(): void {
-        this.router.navigateByUrl('/clientes/' + localStorage.getItem('userId'));
+
+        if ( localStorage.getItem('role') === 'CLIENT')
+        {
+            console.log(localStorage.getItem('role'));
+                
+        
+            this.router.navigateByUrl('/clientes/' + localStorage.getItem('userId'));}
+        else
+        {
+        this.router.navigateByUrl('/administrador/' + localStorage.getItem('userId'));
+          }
+
+
     }
 
     logout(): void {

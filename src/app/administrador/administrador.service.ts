@@ -31,13 +31,16 @@ administradores: Administrador[];
     return this.http.get<Administrador[]>(environment.apiURL + administradores);
   }
 
+
+
   getAdministradorDetail(administradorId): Observable<AdministradorDetail> {
     return this.http.get<AdministradorDetail>(environment.apiURL + administradores + '/' + administradorId);
     
   }
 
-  
-  
+  getAdministradorDetailByUsername(administradorUsername: string) : Observable<AdministradorDetail> {
+    return this.http.get<AdministradorDetail>( environment.apiURL  + administradores + '/' + administradorUsername);
+  }
 
   
   createAdministrador(administrador): Observable<Administrador> {

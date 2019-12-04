@@ -3,6 +3,9 @@ import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 import { ClienteService } from '../cliente/cliente.service';
+import { AdministradorService } from '../administrador/administrador.service';
+import { from } from 'rxjs';
+import { AdministradorDetail } from '../administrador/administrador-detail';
 
 /**
  * The service provider for everything related to authentication
@@ -21,6 +24,7 @@ export class AuthService {
         private roleService: NgxRolesService,
         private permissionsService: NgxPermissionsService,
         private clienteService: ClienteService,
+        private administradorService : AdministradorService,
     ) { }
 
     start (): void {
@@ -76,6 +80,11 @@ export class AuthService {
             this.setAdministratorRole();
         } else if (role === 'Restaurant administrator') {
             this.setRestaurantRole();
+            this.administradorService.getAdministradorDetailByUsername(username).subscribe(administradorDetail => {
+                localStorage.setItem('userId', administradorDetail.id.toString());
+            });
+            console.log(localStorage.getItem('userId'));  
+
         } else {
             this.setClientRole();
             this.clienteService.getClienteDetailByUsername(username).subscribe(clienteDetail => {
