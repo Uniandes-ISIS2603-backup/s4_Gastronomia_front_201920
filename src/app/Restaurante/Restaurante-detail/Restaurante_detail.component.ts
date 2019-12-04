@@ -35,6 +35,8 @@ export class RestauranteDetailComponent{
 
     @ViewChild('map') mapElement: any;
     map: google.maps.Map;
+
+    marker:any;
     
     @ViewChild(RestaurantePlatoComponent) platoListComponent: RestaurantePlatoComponent;
 
@@ -110,7 +112,9 @@ export class RestauranteDetailComponent{
                 this.restauranteDetail =restauranteDetail;
             });
     }
-
+    directionsService:any;
+    directionsRenderer:any;
+    geocoder:any;
     ngOnInit(){
         this.id = +this.route.snapshot.paramMap.get('id');
         this.restauranteDetail = new RestauranteDetail();
@@ -122,14 +126,31 @@ export class RestauranteDetailComponent{
             mapTypeId: google.maps.MapTypeId.ROADMAP
        };
        this.map = new google.maps.Map(this.mapElement.nativeElement,mapProperties);
-       console.log(mapProperties);
+       this.directionsService = new google.maps.DirectionsService();
+        this.directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers:true});
+       this.geocoder = new google.maps.Geocoder();
+       this.codeAddress();
     }
     ngOnDestroy() {
         if (this.navigationSubscription) {
             this.navigationSubscription.unsubscribe();
         }
     }
-
+    codeAddress() {
+        
+        this.geocoder.geocode( { 'address': this.restauranteDetail.direccion+",Bogotá,Colombia"}, function(results, status) {
+          if (status == 'OK') {
+            this.map.setCenter(results[0].geometry.location);
+            console.log(results[0]);
+            this.marker = new google.maps.Marker({
+                map: this.map,
+                position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
     deleteThis()
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);

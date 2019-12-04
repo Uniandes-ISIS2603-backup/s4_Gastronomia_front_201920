@@ -288,7 +288,7 @@ const routes: Routes = [
             {
                 path: 'create',
                 component: ResenaCreateComponent
-            }
+            },
         {        
             path: 'list',
             component: FoodblogListComponent,
