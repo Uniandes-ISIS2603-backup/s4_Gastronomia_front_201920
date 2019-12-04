@@ -161,11 +161,6 @@ export class RestauranteDetailComponent{
     deleteThis()
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
-<<<<<<< HEAD
-    }    
-    
-   }
-=======
     }
     
     toggleReservar() {
@@ -174,4 +169,3 @@ export class RestauranteDetailComponent{
         this.clienteService.getClienteDetail(parseInt(localStorage.getItem('userId'))).subscribe(clienteDetail => this.clienteDetail = clienteDetail)
     }
 }
->>>>>>> 947372bfd8f84dcfe2e99f8e407d095b7f510810
