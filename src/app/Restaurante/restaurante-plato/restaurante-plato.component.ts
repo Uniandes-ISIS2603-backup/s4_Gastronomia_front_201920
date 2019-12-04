@@ -38,7 +38,7 @@ import{RestauranteEditarPlatoComponent} from '../restaurante-editar-plato/restau
 
     editar(plato)
     {
-      this.platoEditarComponent.plato = plato;
+      this.platoEditarComponent.plato.id = plato.id;
       this.platoEditarComponent.isCollapsed =  !this.platoEditarComponent.isCollapsed;
     }
 

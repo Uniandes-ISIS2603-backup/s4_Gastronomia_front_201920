@@ -31,7 +31,7 @@ export class ClienteTarjetaComponent implements OnInit {
 
  editar(tarjeta:Tarjeta)
  {
-    this.tarjetaEditarComponent.tarjeta = tarjeta;
+    this.tarjetaEditarComponent.tarjeta.id = tarjeta.id;
     this.tarjetaEditarComponent.isCollapsed =  !this.tarjetaEditarComponent.isCollapsed;
  }
  updateTarjetas(tarjetas:Tarjeta[]): void {
