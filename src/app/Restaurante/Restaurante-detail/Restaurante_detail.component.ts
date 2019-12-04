@@ -9,12 +9,14 @@ import { Administrador } from '../../administrador/administrador';
 import { s } from '@angular/core/src/render3';
 import { Plato } from '../plato';
 import { Reserva } from '../../reserva/reserva';
+import { ClienteDetail } from '../../cliente/cliente-detail';
 import {} from 'googlemaps';
 
 
 
 import { RestaurantePlatoComponent } from '../restaurante-plato/restaurante-plato.component';
 import { RestauranteAgregarPlatoComponent } from '../restaurante-agregar-plato/restaurante-agregar-plato.component';
+import { ClienteService } from '../../cliente/cliente.service';
 
 @Component({
     selector:'app-restaurante-detail',
@@ -36,6 +38,10 @@ export class RestauranteDetailComponent{
 
     @ViewChild(RestauranteAgregarPlatoComponent) platoAgregarComponent: RestauranteAgregarPlatoComponent;
 
+    reservar: boolean;
+
+    clienteDetail: ClienteDetail;
+
     togglePlatos(): void 
     {
         if(this.platoAgregarComponent.isCollapsed == false)
@@ -54,6 +60,7 @@ export class RestauranteDetailComponent{
    }
     constructor(
         private restauranteService: RestauranteService,
+        private clienteService: ClienteService,
         private route: ActivatedRoute,
         private modalDialogService: ModalDialogService,
         private router: Router,
@@ -123,6 +130,11 @@ export class RestauranteDetailComponent{
     deleteThis()
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
-    }    
-   
+    }
+    
+    toggleReservar() {
+        console.log('hola')
+        this.reservar = true;
+        this.clienteService.getClienteDetail(parseInt(localStorage.getItem('userId'))).subscribe(clienteDetail => this.clienteDetail = clienteDetail)
+    }
 }

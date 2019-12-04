@@ -32,22 +32,6 @@
                     <div>The reservation's number of people is missing</div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="nombreCliente"><b>Nombre cliente</b></label>
-                <input type="text" name="nombreCliente" class="form-control" id="nombreCliente" [(ngModel)]="reserva.nombreCliente"
-                    #nombreCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreCliente.invalid }" required>
-                <div class="invalid-feedback">
-                    <div>The reservation's client name is missing</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="numeroContacto"><b>Número de contacto</b></label>
-                <input type="numeric" name="numeroContacto" class="form-control" id="numeroContacto" [(ngModel)]="reserva.numeroContacto"
-                    #numeroContacto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroContacto.invalid }" required>
-                <div class="invalid-feedback">
-                    <div>The reservation's contact number is missing</div>
-                </div>
-            </div>
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Create</button>
                 <div class="divider"></div>

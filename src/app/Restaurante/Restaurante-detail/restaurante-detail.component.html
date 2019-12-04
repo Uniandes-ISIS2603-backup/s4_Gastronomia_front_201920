@@ -90,7 +90,10 @@
                   </tr>
                   <tr>
                       <td>
-                        <a href="#" class="btn btn-primary">Modificar</a>
+                        <a class="btn btn-primary" (click)='toggleReservar()' *ngxPermissionsOnly="['CLIENT']">Reservar</a>
+                        <div *ngIf="reservar">
+                            <app-reserva-create [restaurante] = "restauranteDetail" [cliente] = "clienteDetail"></app-reserva-create>
+                        </div>  
                       </td>
                       <td>
                           <a href="#" class="btn btn-danger" (click)="deleteThis()" routerLink="/restaurantes/list">Eliminar</a>
