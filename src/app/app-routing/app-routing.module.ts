@@ -35,17 +35,27 @@ const routes: Routes = [
     {
         path: 'tarjetas',
         children: [{
-          path: 'list',
-          component: TarjetaListComponent
+            path: 'list',
+            component: TarjetaListComponent
         },
         {
-        path: 'add',
-        component: TarjetaCreateComponent
+            path: 'add',
+            component: TarjetaCreateComponent,
+            data: {
+                permissions: {
+                    only: ['CLIENT']
+                }
+            }
         },
         {
-          path: ':id',
-          component: TarjetaDetailComponent,
-          outlet: 'detail'
+            path: ':id',
+            component: TarjetaDetailComponent,
+            outlet: 'detail',
+            data: {
+                permissions: {
+                    only: ['CLIENT']
+                }
+            }
         }
         ]
       },
@@ -63,7 +73,7 @@ const routes: Routes = [
                 }
             },
             {
-                path: ':sign-up',
+                path: 'sign-up',
                 component: AuthSignUpComponent,
                 canActivate: [NgxPermissionsGuard],
                 data: {
@@ -81,15 +91,30 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ClienteListComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: 'add',
-                component: ClienteCreateComponent
+                component: ClienteCreateComponent,
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             },
             {
                 path: ':id',
                 component: ClienteDetailComponent,
-                runGuardsAndResolvers: 'always'
+                runGuardsAndResolvers: 'always',
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT']
+                    }
+                }
             } 
         ]
     },
@@ -99,15 +124,30 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ReservaListComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT', 'RESTAURANT']
+                    }
+                }
             },
             {
                 path: 'add',
-                component: ReservaCreateComponent
+                component: ReservaCreateComponent,
+                data: {
+                    permissions: {
+                        only: ['CLIENT']
+                    }
+                }
             },
             {
                 path: ':id',
                 component: ReservaDetailComponent,
-                runGuardsAndResolvers: 'always'
+                runGuardsAndResolvers: 'always',
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT']
+                    }
+                }
             } 
         ]
     },
@@ -143,16 +183,31 @@ const routes: Routes = [
         children:[
             {
                 path:'list',
-                component: RestauranteListComponent
+                component: RestauranteListComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT', 'GUEST']
+                    }
+                }
             },
             {
                 path: 'create',
-                component: RestauranteCreateComponent
+                component: RestauranteCreateComponent,
+                data: {
+                    permissions: {
+                        only: ['RESTAURANT']
+                    }
+                }
             },
             {
                 path: ':id',
                 component: RestauranteDetailComponent,
-                runGuardsAndResolvers: 'always'
+                runGuardsAndResolvers: 'always',
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT', 'GUEST']
+                    }
+                }
             }
         ]
     } , 
@@ -163,18 +218,22 @@ const routes: Routes = [
            
         {        
                 path: 'list',
-                component: AdministradorListComponent
+                component: AdministradorListComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
         } ,
         {
                 path: 'create',
-                component: AdministradorCreateComponent
-        },
-        {
-            path: 'login',
-            component: AuthLoginComponent
-        }
-       
-            
+                component: AdministradorCreateComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
+        },  
         ]
     },
 
@@ -183,11 +242,21 @@ const routes: Routes = [
         children: [
             {        
                 path: 'list',
-                component: FacturaListComponent
+                component: FacturaListComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT', 'RESTAURANT']
+                    }
+                }
             },
             {
                 path: 'create',
-                component: FacturaCreateComponent
+                component: FacturaCreateComponent,
+                data: {
+                    permissions: {
+                        only: ['RESTAURANT']
+                    }
+                }
             }
         ]
     },
@@ -220,6 +289,35 @@ const routes: Routes = [
                 path: 'create',
                 component: ResenaCreateComponent
             }
+        {        
+            path: 'list',
+            component: FoodblogListComponent,
+            data: {
+                permissions: {
+                    only: ['ADMIN', 'CLIENT', 'RESTAURANT', 'GUEST']
+                }
+            }
+
+        },
+        {
+            path:':id',
+            component: FoodblogDetailComponent,
+            data: {
+                permissions: {
+                    only: ['ADMIN', 'CLIENT', 'RESTAURANT', 'GUEST']
+                }
+            }
+
+        },
+        {
+            path: 'create',
+            component: FoodblogCreateComponent,
+            data: {
+                permissions: {
+                    only: ['CLIENT']
+                }
+            }
+        }
         ]
     },
     {
@@ -228,11 +326,21 @@ const routes: Routes = [
            
         {        
                 path: 'list',
-                component: TipoComidaListComponent
+                component: TipoComidaListComponent,
+                data: {
+                    permissions: {
+                        only: ['ADMIN', 'CLIENT', 'RESTAURANT']
+                    }
+                }
         },
         {
             path: 'create',
-            component: TipoComidaCreateComponent
+            component: TipoComidaCreateComponent,
+            data: {
+                permissions: {
+                    only: ['ADMIN', 'CLIENT', 'RESTAURANT']
+                }
+            }
         }   
         ]
     },

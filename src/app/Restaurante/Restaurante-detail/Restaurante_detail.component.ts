@@ -32,6 +32,10 @@ export class RestauranteDetailComponent{
     benefits:String[];
     esAdmi:Boolean;
     esVisitante:Boolean;
+
+    @ViewChild('map') mapElement: any;
+    map: google.maps.Map;
+    
     @ViewChild(RestaurantePlatoComponent) platoListComponent: RestaurantePlatoComponent;
 
     @ViewChild(RestauranteAgregarPlatoComponent) platoAgregarComponent: RestauranteAgregarPlatoComponent;
@@ -112,7 +116,13 @@ export class RestauranteDetailComponent{
         this.restauranteDetail = new RestauranteDetail();
         this.getDetailRestaurant();        
         this.benefits=this.getBenefits();
-
+        const mapProperties = {
+            center: new google.maps.LatLng(35.2271, -80.8431),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+       };
+       this.map = new google.maps.Map(this.mapElement.nativeElement,mapProperties);
+       console.log(mapProperties);
     }
     ngOnDestroy() {
         if (this.navigationSubscription) {
@@ -124,5 +134,5 @@ export class RestauranteDetailComponent{
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
     }    
-   
-}
+    
+   }
