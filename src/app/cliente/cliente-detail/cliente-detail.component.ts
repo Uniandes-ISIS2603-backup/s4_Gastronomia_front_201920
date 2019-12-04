@@ -50,6 +50,7 @@ export class ClienteDetailComponent implements OnInit {
     this.clienteService.getClienteDetail(this.cliente_id)
             .subscribe(clienteDetail => {
                 this.clienteDetail = clienteDetail
+                console.log(this.clienteDetail)
             });
 
   }

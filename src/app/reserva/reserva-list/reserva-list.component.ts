@@ -21,15 +21,7 @@ export class ReservaListComponent implements OnInit {
    */
   @Input() reservas: Reserva[];
 
-  /**
-   * Asks the service to update the list of clients
-   */
-  getReservas(): void {
-      this.reservaService.getReservas().subscribe(reservas => this.reservas = reservas);
-  }
-
   ngOnInit() {
-    this.getReservas();
   }
 
 }
