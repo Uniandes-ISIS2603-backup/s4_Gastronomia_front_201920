@@ -50,21 +50,23 @@ export class ClienteDetailComponent implements OnInit {
     this.clienteService.getClienteDetail(this.cliente_id)
             .subscribe(clienteDetail => {
                 this.clienteDetail = clienteDetail
+                console.log(this.clienteDetail)
             });
 
   }
-  updateTarjetas(): void{
+
+  updateTarjetas(): void {
     this.getClienteDetail();
     this.tarjetaListComponent.updateTarjetas(this.clienteDetail.tarjetas);
     this.tarjetaListComponent.isCollapsed =false;
     this.tarjetaAgregarComponent.isCollapsed = true;
-}
+  }
 
   ngOnInit() {
-    this.cliente_id = +this.route.snapshot.paramMap.get('id');
-    if (this.cliente_id){
-    this.clienteDetail = new ClienteDetail();
-    this.getClienteDetail();
+    this.cliente_id = + this.route.snapshot.paramMap.get('id');
+    if (this.cliente_id) {
+      this.clienteDetail = new ClienteDetail();
+      this.getClienteDetail();
     }
   }
 

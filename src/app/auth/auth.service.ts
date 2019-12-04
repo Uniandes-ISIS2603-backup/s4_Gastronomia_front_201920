@@ -2,6 +2,10 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
+import { ClienteService } from '../cliente/cliente.service';
+import { AdministradorService } from '../administrador/administrador.service';
+import { from } from 'rxjs';
+import { AdministradorDetail } from '../administrador/administrador-detail';
 
 /**
  * The service provider for everything related to authentication
@@ -15,9 +19,16 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor (
+        private router: Router,
+        private roleService: NgxRolesService,
+        private permissionsService: NgxPermissionsService,
+        private clienteService: ClienteService,
+        private administradorService : AdministradorService,
+    ) { }
 
     start (): void {
+        localStorage.removeItem('role');
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
         this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
@@ -26,6 +37,8 @@ export class AuthService {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
+        } else if (role === 'RESTAURANT') {
+            this.setRestaurantRole();
         } else {
             this.setClientRole();
         }
@@ -36,16 +49,22 @@ export class AuthService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
-    }
-
     setAdministratorRole (): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
         localStorage.setItem('role', 'ADMIN');
+    }
+
+    setRestaurantRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('RESTAURANT', ['edit_author_permission', 'delete_author_permission']);
+        localStorage.setItem('role', 'RESTAURANT');
+    }
+
+    setClientRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('CLIENT', ['leave_review']);
+        localStorage.setItem('role', 'CLIENT');
     }
 
     printRole (): void {
@@ -56,11 +75,22 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
+    login (role, username) {
         if (role === 'Administrator') {
             this.setAdministratorRole();
+        } else if (role === 'Restaurant administrator') {
+            this.setRestaurantRole();
+            this.administradorService.getAdministradorDetailByUsername(username).subscribe(administradorDetail => {
+                localStorage.setItem('userId', administradorDetail.id.toString());
+            });
+            console.log(localStorage.getItem('userId'));  
+
         } else {
-            this.setClientRole()
+            this.setClientRole();
+            this.clienteService.getClienteDetailByUsername(username).subscribe(clienteDetail => {
+                localStorage.setItem('userId', clienteDetail.id.toString());
+            });
+            console.log(localStorage.getItem('userId'));  
         }
         this.router.navigateByUrl('/');
     }
@@ -72,6 +102,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('userId');
         this.router.navigateByUrl('/');
     }
 }

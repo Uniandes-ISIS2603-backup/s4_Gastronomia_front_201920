@@ -17,7 +17,12 @@
                         <tr *ngFor="let tipoComida of tipoComidas" style="cursor: pointer;" (click)="onSelected(tipoComida)">
                             
                             <td style="font-family: 'Raleway', sans-serif;">{{tipoComida.nombre}}</td>
-                            
+                            <td >
+                              <button class="btn btn-primary" (click)="showHideEdit(administrador.id)"><span class="fa fa-pencil"></span></button>
+                             </td>
+                             <td >
+                              <button class="btn btn-danger" (click)="deleteAdministrador(administrador.id)"><span class="fa fa-trash"></span></button>
+                            </td>
               
                         </tr>
                     </tbody>

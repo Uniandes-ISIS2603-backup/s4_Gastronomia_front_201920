@@ -7,7 +7,5 @@ export class Reserva {
     motivo: string;
     fecha: any;
     numPersonas: number;
-    nombreCliente: string;
-    numeroContacto: string;
     cancelada: boolean;
 }

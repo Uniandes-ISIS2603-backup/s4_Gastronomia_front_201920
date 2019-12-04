@@ -9,12 +9,14 @@ import { Administrador } from '../../administrador/administrador';
 import { s } from '@angular/core/src/render3';
 import { Plato } from '../plato';
 import { Reserva } from '../../reserva/reserva';
+import { ClienteDetail } from '../../cliente/cliente-detail';
 import {} from 'googlemaps';
 
 
 
 import { RestaurantePlatoComponent } from '../restaurante-plato/restaurante-plato.component';
 import { RestauranteAgregarPlatoComponent } from '../restaurante-agregar-plato/restaurante-agregar-plato.component';
+import { ClienteService } from '../../cliente/cliente.service';
 
 @Component({
     selector:'app-restaurante-detail',
@@ -32,9 +34,19 @@ export class RestauranteDetailComponent{
     benefits:String[];
     esAdmi:Boolean;
     esVisitante:Boolean;
+
+    @ViewChild('map') mapElement: any;
+    map: google.maps.Map;
+
+    marker:any;
+    
     @ViewChild(RestaurantePlatoComponent) platoListComponent: RestaurantePlatoComponent;
 
     @ViewChild(RestauranteAgregarPlatoComponent) platoAgregarComponent: RestauranteAgregarPlatoComponent;
+
+    reservar: boolean;
+
+    clienteDetail: ClienteDetail;
 
     togglePlatos(): void 
     {
@@ -54,6 +66,7 @@ export class RestauranteDetailComponent{
    }
     constructor(
         private restauranteService: RestauranteService,
+        private clienteService: ClienteService,
         private route: ActivatedRoute,
         private modalDialogService: ModalDialogService,
         private router: Router,
@@ -106,23 +119,59 @@ export class RestauranteDetailComponent{
                 this.restauranteDetail =restauranteDetail;
             });
     }
-
+    directionsService:any;
+    directionsRenderer:any;
+    geocoder:any;
     ngOnInit(){
         this.id = +this.route.snapshot.paramMap.get('id');
         this.restauranteDetail = new RestauranteDetail();
         this.getDetailRestaurant();        
         this.benefits=this.getBenefits();
-
+        const mapProperties = {
+            center: new google.maps.LatLng(35.2271, -80.8431),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+       };
+       this.map = new google.maps.Map(this.mapElement.nativeElement,mapProperties);
+       this.directionsService = new google.maps.DirectionsService();
+        this.directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers:true});
+       this.geocoder = new google.maps.Geocoder();
+       this.codeAddress();
     }
     ngOnDestroy() {
         if (this.navigationSubscription) {
             this.navigationSubscription.unsubscribe();
         }
     }
-
+    codeAddress() {
+        
+        this.geocoder.geocode( { 'address': this.restauranteDetail.direccion+",Bogotá,Colombia"}, function(results, status) {
+          if (status == 'OK') {
+            this.map.setCenter(results[0].geometry.location);
+            console.log(results[0]);
+            this.marker = new google.maps.Marker({
+                map: this.map,
+                position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
     deleteThis()
     {
         this.restauranteService.deleteRestaurante(this.restauranteDetail.id);
+<<<<<<< HEAD
     }    
-   
+    
+   }
+=======
+    }
+    
+    toggleReservar() {
+        console.log('hola')
+        this.reservar = true;
+        this.clienteService.getClienteDetail(parseInt(localStorage.getItem('userId'))).subscribe(clienteDetail => this.clienteDetail = clienteDetail)
+    }
 }
+>>>>>>> 947372bfd8f84dcfe2e99f8e407d095b7f510810

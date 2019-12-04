@@ -1,64 +1,53 @@
 <!-- <marquee behavior="" direction=""><i class="fas fa-utensils"></i> <i class="fas fa-hamburger"></i> <i class="fas fa-drumstick-bite"></i> <i class="fas fa-pizza-slice"></i></marquee> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <a class="navbar-brand" href="#">F O O D I V E</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" routerLink="/restaurantes/list">Nuestros restaurantes</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="#">Eventos especiales </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/blog/list">Blog</a>
-              </li>
+    <a class="navbar-brand" href="#">F O O D I V E</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     
-              <li class="nav-item dropdown"  >
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admin
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
-                    <a class="dropdown-item" href="#" routerLink = "/clientes/list">Listar Clientes</a>
-                  </div>
-                </li>
-    
-              
-            
-          </ul>
-          
-          <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle mr-3 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       ¿Tienes un restaurante?
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#" routerLink = "/administrador/login" >Ingresar</a>
-                  <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
-                </div>
-              </div>
-    
-    
-          <button type="button" class="btn btn-outline-dark mr-3">Inicia sesion</button>
-          <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Hazte una cuenta</button>
-          
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink ='/home' >Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/restaurantes/list">Nuestros restaurantes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/blog/list">Blog</a>
+        </li>
+        <li class="nav-item dropdown" *ngxPermissionsOnly="['ADMIN']">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" routerLink = "/administrador/list">Listar Administradores</a>
+              <a class="dropdown-item" href="#" routerLink = "/clientes/list">Listar Clientes</a>
+            </div>
+        </li>  
+      </ul>
+      
+          <div class="dropdown" *ngxPermissionsOnly="['GUEST']">
+              <button class="btn btn-secondary dropdown-toggle mr-3 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      ¿Tienes un restaurante?
+              </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#" routerLink = "/administrador/create">Crear cuenta</a>
+            </div>
+          </div>
+        <div *ngxPermissionsOnly="['GUEST']">
+          <button type="button" class="btn btn-outline-dark mr-3" routerLink = "/auth/login">Inicia sesión</button>
+          <button type="button" class="btn btn-outline-dark" routerLink = "/clientes/add">Crear cuenta</button>
         </div>
-      </nav>
-    <section class="hero">
-      <div class="hero-inner">
-          <h1>No te quedes sin mesa</h1>
-          <h2>Reserva y encuentra tu restaurante favorito en minutos!</h2>
-        
+      
+      <div *ngxPermissionsOnly="['ADMIN', 'RESTAURANT', 'CLIENT']">
+          <button type="button" class="btn btn-outline-dark mr-3" (click)=getUserInformation()>Mi cuenta</button>
+          <button type="button" class="btn btn-outline-dark mr-3" (click)=logout()>Cerrar sesión</button>
       </div>
-  </section>
+    </div>
+  </nav>
 
-  <div>
-      <router-outlet></router-outlet>  
-  </div>
+<div>
+  <router-outlet></router-outlet>  
+</div>

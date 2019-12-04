@@ -1,6 +1,7 @@
-export class Factura{
+export class Factura
+{
     valor:number;
     valorCompleto :number;
-    fecha:Date;
+    fecha:any;
     sePago: boolean;
 }

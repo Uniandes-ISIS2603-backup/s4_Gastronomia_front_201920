@@ -24,12 +24,14 @@ export class FoodblogCreateComponent implements OnInit {
 
   imagen:String;
 
+  comentarios:String;
+
   @Output() cancel= new EventEmitter();
 
   @Output() create = new EventEmitter();
 
   createFoodBlog(): FoodBlog{
-    
+    this.foodBlog.comentarios=(<HTMLInputElement>document.getElementById("comment")).value;
     this.foodBlog.texto=this.descripcion;
     this.foodBlog.archivoMultimedia=this.imagen;
         this.foodBlogService.createFoodBlog(this.foodBlog).subscribe((foodBlog)=>{this.foodBlog=foodBlog
@@ -46,7 +48,7 @@ export class FoodblogCreateComponent implements OnInit {
   {
     this.foodBlog= new FoodBlog();
     this.foodBlog.numeroMeGusta=0;
-    this.foodBlog.comentarios="";
+    this.comentarios="";
     this.foodBlog.numeroNoMegusta=0;
     this.descripcion="";
     this.imagen="";

@@ -1,1 +1,12 @@
-<p>resena-list works!</p>
+<div class="container-fluid">
+    <div class="col-md-2" *ngFor = "let restaurante of restaurantes">
+        <div class="card" style="width: 18rem;">
+            <img src={{restaurante.imagen}} class="card-img-top" alt={{restaurante.nombre}}>
+            <div class="card-body">
+                <h5 class="card-title">{{restaurante.nombre}}</h5>
+                <p class="card-text">Direccion: {{restaurante.direccion}}</p>
+                <a href="#" routerLink="/restaurantes/{{restaurante.id}}" class="btn btn-primary">más Info</a>
+            </div>
+        </div>
+    </div>
+</div>

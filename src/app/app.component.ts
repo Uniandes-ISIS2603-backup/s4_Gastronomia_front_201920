@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import {Router} from '@angular/router';
 
 /**
  * The app component. This component is the base of s4_gastronomia-Front
@@ -27,11 +28,30 @@ export class AppComponent implements OnInit {
        /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
+    constructor(
+        private authService: AuthService,
+        private router: Router,
+    ) { }
 
-    //logout(): void {
-      //  this.authService.logout()
-    //}
+    getUserInformation(): void {
+
+        if ( localStorage.getItem('role') === 'CLIENT')
+        {
+            console.log(localStorage.getItem('role'));
+                
+        
+            this.router.navigateByUrl('/clientes/' + localStorage.getItem('userId'));}
+        else
+        {
+        this.router.navigateByUrl('/administrador/' + localStorage.getItem('userId'));
+          }
+
+
+    }
+
+    logout(): void {
+        this.authService.logout()
+    }
 
 }
 
