@@ -69,6 +69,21 @@ p{
     z-index:1;
 }
 
+.map-container{
+    overflow:hidden;
+    padding-top: 2.25%;
+    padding-bottom:2.25%;
+    position:relative;
+    
+  }
+  .map-container iframe{
+    display: block;
+     margin-left: auto;
+    margin-right: auto;
+    height:500px;
+    width: 1000px;;
+  }
+
 .hm-gradient .full-bg-img {
     background: -moz-linear-gradient(45deg, rgba(242, 34, 50, 0.5), rgba(255, 187, 54, 0.6) 100%);
     background: -webkit-linear-gradient(45deg, rgba(242, 34, 50, 0.5), rgba(255, 187, 54, 0.6) 100%);
