@@ -12,8 +12,6 @@ import { Reserva } from '../../reserva/reserva';
 import { ClienteDetail } from '../../cliente/cliente-detail';
 import {} from 'googlemaps';
 
-
-
 import { RestaurantePlatoComponent } from '../restaurante-plato/restaurante-plato.component';
 import { RestauranteAgregarPlatoComponent } from '../restaurante-agregar-plato/restaurante-agregar-plato.component';
 import { ClienteService } from '../../cliente/cliente.service';
