@@ -27,8 +27,15 @@
     <app-tipo-comida-list [tipoComida]="clienteDetail.preferencias"></app-tipo-comida-list>
     <p class="h3 p-3">Facturas de este cliente: </p>
     <app-factura-list [facturas]="clienteDetail.facturas"></app-factura-list> -->
+    <p class="h3 p-3">Facturas de este cliente: </p>
+    <app-factura-list [facturas]="clienteDetail.facturas"></app-factura-list>
+
+    <p class="h3 p-3">Preferencias de este cliente: </p>
+    <app-tipo-comida-list [tipoComidas]="clienteDetail.preferencias"></app-tipo-comida-list>
+
     <p class="h3 p-3">Reservas de este cliente: </p>
     <app-reserva-list [reservas]="clienteDetail.reservas"></app-reserva-list>
+    
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">      
     <div class="col p-4 d-flex flex-column position-static">
         <h3 class="mb-0">Tus Tarjetas:</h3>

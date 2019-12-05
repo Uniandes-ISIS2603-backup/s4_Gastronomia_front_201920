@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ReservaModule } from '../reserva/reserva.module';
 import { FoodblogModule } from '../foodblog/foodblog.module';
-//import { TipoComidaModule } from '../tipo-comida/tipo-comida.module';
-//import { FacturaModule } from '../factura/factura.module';
+import { TipoComidaModule } from '../tipo-comida/tipo-comida.module';
+import { FacturaModule } from '../factura/factura.module';
 
 import { ClienteService } from './cliente.service';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
@@ -17,6 +17,7 @@ import { ClienteAgregarTarjetaComponent } from './cliente-agregar-tarjeta/client
 import {ClienteEditarTarjetaComponent} from './cliente-editar-tarjeta/cliente-editar-tarjeta.component';
 
 
+
 @NgModule({
   imports: [
     NgbModule,
@@ -25,8 +26,8 @@ import {ClienteEditarTarjetaComponent} from './cliente-editar-tarjeta/cliente-ed
     FormsModule,
     ReservaModule,
     FoodblogModule,
-    //TipoComidaModule,
-    //FacturaModule,
+    TipoComidaModule,
+    FacturaModule,
   ],
   declarations: [ClienteListComponent,
                  ClienteDetailComponent,

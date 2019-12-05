@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewContainerRef} from '@angular/core';
+import { Component, OnInit , ViewContainerRef, Input} from '@angular/core';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 import { TipoComidaService } from '../tipo-comida.service';
@@ -11,7 +11,7 @@ import { TipoComida } from '../tipo-comida';
 })
 export class TipoComidaListComponent implements OnInit {
 
- tipoComidas: TipoComida[];
+ @Input() tipoComidas: TipoComida[];
 
  tipo_id:number;
  

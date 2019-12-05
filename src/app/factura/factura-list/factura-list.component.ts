@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewContainerRef} from '@angular/core';
+import { Component, OnInit , Input , ViewContainerRef} from '@angular/core';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 import { FacturaService } from '../factura.service';
@@ -13,7 +13,7 @@ import { Factura } from '../factura';
 export class FacturaListComponent implements OnInit 
 {
 
- facturas: Factura[];
+ @Input() facturas: Factura[];
 
  factura_id:number;
  

@@ -1,21 +1,26 @@
-<div class="container">
+<div class="container centrar">
         <div class="row">
           <div class="col">
                
                         <h2>Buscador</h2>
                         <input type="text" (keyup)="getByname()" placeholder="Buscar" id="Buscador">
-                   
+                        <br>
                         <div class="dropdown show">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tipo Restaurante
                             </a>
+                            <br>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor = "let tipo of Tipos">
-                                <a class="dropdown-item" href="#" (click)="getByTipo(tipo)">{{tipo}}</a>                        
+                              <br>
+                                <a class="dropdown-item" href="#" (click)="getByTipo(tipo)">{{tipo}}</a>  
+                                <br>                      
                             </div>
+                            
                         </div>
-                   
+                      
+                        <br>
                         <button type="reset" (click)="ngOnInit()">Reiniciar Busqueda</button>
-                    
+                        <br>
               
                         <button type="submit" (click)="change()">Cambiar Buscador</button>
              
@@ -63,12 +68,12 @@
 
 
 
-<div class="container-fluid" id="GGG">
+<div class="container-fluid centrar" id="GGG">
    
-    <div class="row" *ngIf="!map">
-        <div class="col-md-6" *ngFor = "let restaurante of restaurantes">
-            <div class="card" style="width: 18rem;">
-                <img src={{restaurante.imagen}} class="card-img-top" alt={{restaurante.nombre}}>
+    <div class="row centrar" *ngIf="!map">
+        <div class="col centrar" *ngFor = "let restaurante of restaurantes">
+            <div class="card centrar" style="width: 18rem;">
+                <img src={{restaurante.imagen}} class="card-img-top centrar" alt={{restaurante.nombre}}>
                 <div class="card-body">
                   <h5 class="card-title">{{restaurante.nombre}}</h5>
                   <p class="card-text">Direccion: {{restaurante.direccion}}</p>
